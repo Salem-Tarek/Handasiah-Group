@@ -4,7 +4,7 @@
             <div class="upper-footer">
                 <v-row class="align-center">
                     <v-col md="4" cols="12">
-                        <v-img contain height="130px" width="130px" src="../../assets/logo.png"></v-img>
+                        <v-img contain height="130px" width="130px" src="../../../assets/logo.png"></v-img>
                         <p class="grey--text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus minus magnam, quidem sed corrupti rem cum perferendis sunt eos sit perspiciatis id, dolore dicta dolorem sapiente optio soluta doloremque! Porro?.</p>
                     </v-col>
                     <v-col md="4" cols="12" class="d-flex justify-md-center justify-start">
@@ -16,9 +16,6 @@
                             </v-list-item>
                             <v-list-item>
                                 <router-link class="grey--text text-decoration-none  subtitle-1" to="/">About Us</router-link>
-                            </v-list-item>
-                            <v-list-item>
-                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/">FAQ</router-link>
                             </v-list-item>
                             <v-list-item>
                                 <router-link class="grey--text text-decoration-none  subtitle-1" to="/">Quotation</router-link>
@@ -90,6 +87,9 @@ export default {
 </script>
 
 <style lang="scss">
+footer {
+    font-family: 'Poppins', sans-serif !important;
+}
 .contacts .v-list-item a {
     transition: 0.3s
 }

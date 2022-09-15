@@ -1,7 +1,7 @@
 <template>
     <div class="demo py-5 text-center d-flex align-center justify-center flex-column">
-        <h1 class="mb-10">View our <span class="font-weight-bold">Video Demo</span></h1>
-        <p class="mb-10 font-weight-bold grey--text text--darken-2">Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.</p>
+        <h1 class="mb-10">شاهد <span class="main-text-color">عرض الفيديو</span> الخاص بنا</h1>
+        <p class="mb-10 font-weight-bold grey--text text--darken-2">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبورلوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا .</p>
         <v-icon x-large @click="overlay = !overlay" class="main-text-color">mdi-play-circle</v-icon>
         <v-overlay :z-index="zIndex" :value="overlay" @click="overlay = !overlay">
             <iframe src="//www.youtube.com/embed/Qi8bskIhfw8?autoplay=1" frameborder="0"></iframe>
@@ -23,6 +23,7 @@ export default {
 
 <style lang="scss">
 .demo {
+    font-family: 'Cairo', sans-serif !important;
     background:url('../../../assets/bg_parallax.jpg') no-repeat center center;
     background-attachment: fixed;
     height: 500px;
