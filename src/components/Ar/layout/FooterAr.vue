@@ -95,7 +95,6 @@ export default {
 <style lang="scss">
 footer {
     font-family: 'Cairo', sans-serif !important;
-    direction: rtl;
 }
 .contacts .v-list-item a {
     transition: 0.3s

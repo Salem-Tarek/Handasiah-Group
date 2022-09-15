@@ -22,6 +22,11 @@
                         <v-list-item class="mx-3 px-0 text-uppercase">
                             <router-link class="headline font-weight-bold" to="/contact">إتصل بنا</router-link>
                         </v-list-item>
+                        <v-list-item>
+                            <v-btn dark depressed @click="toggleLang">
+                                <v-icon>mdi-translate</v-icon>
+                            </v-btn>
+                        </v-list-item>
                     </v-list>
                 </div>
                 <v-app-bar-nav-icon @click="toggleShowDrawer" class="d-flex d-md-none"></v-app-bar-nav-icon>
@@ -47,6 +52,11 @@
                         <v-list-item>
                             <router-link class="headline font-weight-bold" to="/contact">إتصل بنا</router-link>
                         </v-list-item>
+                        <v-list-item>
+                            <v-btn dark depressed @click="toggleLang">
+                                <v-icon>mdi-translate</v-icon>
+                            </v-btn>
+                        </v-list-item>
                     </v-list-item-group>
                 </v-list>
             </v-navigation-drawer>
@@ -55,6 +65,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
     name: "Navbar",
     data(){
@@ -63,10 +74,11 @@ export default {
         }
     },
     methods:{
+        ...mapActions(['toggleLang']),
         toggleShowDrawer(){
             this.showDrawer = !this.showDrawer; 
         }
-    }
+    },
 }
 </script>
 
@@ -74,7 +86,6 @@ export default {
 
 nav {
     font-family: 'Cairo', sans-serif;
-    direction: rtl;
     .v-list .v-list-item {
         min-width: fit-content !important;
         a {

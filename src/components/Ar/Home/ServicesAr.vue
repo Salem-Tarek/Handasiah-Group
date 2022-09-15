@@ -49,7 +49,6 @@ export default {
 <style>
 .services {
     font-family: 'Cairo', sans-serif !important;
-    direction: rtl;
 }
 
 .services .v-card .v-card__title {

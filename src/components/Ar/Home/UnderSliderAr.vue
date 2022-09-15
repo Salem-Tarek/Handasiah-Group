@@ -17,7 +17,6 @@ export default {
 
 <style>
 .underSlider {
-    direction: rtl;
     font-family: 'Cairo', sans-serif !important;
 }
 .main-bg-color {

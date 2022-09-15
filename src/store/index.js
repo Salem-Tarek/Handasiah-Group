@@ -4,8 +4,25 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+  state: {
+    lang: "En"
+  },
+  getters:{
+    getLang: state => state.lang,
+  },
+  mutations: {
+    toggleLang: state => {
+      if(state.lang === "En"){
+        state.lang = "Ar"
+      }else{
+        state.lang = "En"
+      }
+    }
+  },
+  actions: {
+    toggleLang({commit}){
+      commit('toggleLang')
+    }
+  },
   modules: {},
 });

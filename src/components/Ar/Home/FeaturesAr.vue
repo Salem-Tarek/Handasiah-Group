@@ -94,7 +94,6 @@ export default {
 <style lang="scss">
 .features {
     font-family: 'Cairo', sans-serif !important;
-    direction: rtl;
     .col {
         i {
             font-size: 60px !important;
