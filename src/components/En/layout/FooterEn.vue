@@ -5,7 +5,7 @@
                 <v-row class="align-center">
                     <v-col md="4" cols="12">
                         <v-img contain height="130px" width="130px" src="../../../assets/logo.png"></v-img>
-                        <p class="grey--text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus minus magnam, quidem sed corrupti rem cum perferendis sunt eos sit perspiciatis id, dolore dicta dolorem sapiente optio soluta doloremque! Porro?.</p>
+                        <p class="grey--text subtitle-1 font-weight-bold">Elhandasiah Group was established to be one of the distinguished companies in the work of networks, security systems and contracting.</p>
                     </v-col>
                     <v-col md="4" cols="12" class="d-flex justify-md-center justify-start">
                         <v-list dense class="transparent">
@@ -29,7 +29,7 @@
                         </v-list>
                     </v-col>
                     <v-col md="4" cols="12">
-                        <v-list class="contacts transparent">
+                        <v-list dense class="contacts transparent pb-0">
                             <v-list-item-title class="font-weight-bold white--text title">
                                 Contacts
                             </v-list-item-title>
@@ -73,7 +73,7 @@
                     </v-list-item>
                 </v-list>
             </div>
-            <div class="copyRight text-center white--text font-weight-bold mb-0 mt-3">
+            <div class="copyRight text-center white--text mb-0 mt-3">
                 <p class="mb-0">&copy; Handasiah Group 2022 - All rights reserved.</p>
             </div>
         </v-container>

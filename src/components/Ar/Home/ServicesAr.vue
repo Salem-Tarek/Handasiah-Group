@@ -47,10 +47,6 @@ export default {
 </script>
 
 <style>
-.services {
-    font-family: 'Cairo', sans-serif !important;
-}
-
 .services .v-card .v-card__title {
     letter-spacing: 0;
 }

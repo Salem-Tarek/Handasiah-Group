@@ -5,14 +5,14 @@
             <UnderSliderEn />
             <FeaturesEn />
             <ServicesEn />
-            <VideoDemoEn />
+            <VideoDemoEn @overlaytoggled="toggleDemoOverlay" />
         </template>
         <template v-else>
             <SliderAr />
             <UnderSliderAr />
             <FeaturesAr />
             <ServicesAr />
-            <VideoDemoAr />
+            <VideoDemoAr @overlaytoggled="toggleDemoOverlay" />
         </template>
     </div>
 </template>
@@ -51,6 +51,11 @@ export default {
     },
     computed:{
         ...mapGetters(['getLang'])
+    },
+    methods:{
+        toggleDemoOverlay(val){
+            this.$emit('overlaytoggled', val)
+        }
     }
 }
 </script>

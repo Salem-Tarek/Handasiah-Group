@@ -14,7 +14,7 @@
                             <router-link to="/women">Services</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0 text-uppercase">
-                            <router-link to="/about">AboutUs</router-link>
+                            <router-link to="/about">About Us</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0 text-uppercase">
                             <router-link to="/men">Shop</router-link>
@@ -44,7 +44,7 @@
                             <router-link to="/women">Services</router-link>
                         </v-list-item>
                         <v-list-item>
-                            <router-link to="/about">AboutUs</router-link>
+                            <router-link to="/about">About Us</router-link>
                         </v-list-item>
                         <v-list-item>
                             <router-link to="/men">Shop</router-link>

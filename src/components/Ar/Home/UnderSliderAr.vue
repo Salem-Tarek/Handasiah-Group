@@ -16,9 +16,6 @@ export default {
 </script>
 
 <style>
-.underSlider {
-    font-family: 'Cairo', sans-serif !important;
-}
 .main-bg-color {
     background-color: #0057a8
 }

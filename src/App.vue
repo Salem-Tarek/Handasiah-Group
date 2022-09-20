@@ -1,5 +1,5 @@
 <template>
-  <v-app :style="{ direction : getLang === 'En' ? 'ltr' : 'rtl', fontFamily: getLang === 'En' ? 'Poppins, sans-serif' : 'Cairo, sans-serif'}">
+  <v-app :dir="getLang === 'En' ? 'ltr' : 'rtl'" :class="{ 'overlayShowed' : overlayShowed}">
     <v-snackbar color="#0057a8" class="font-weight-bold" top v-model="showSnackbar" :timeout="2000">
       {{ text }}
       <template v-slot:action="{ attrs }">
@@ -16,7 +16,7 @@
     <NavbarEn v-if="getLang === 'En'" />
     <NavbarAr v-else />
     <v-main>
-      <router-view />
+      <router-view @overlaytoggled="toggleDemoOverlay" />
     </v-main>
     <FooterEn v-if="getLang === 'En'" />
     <FooterAr v-else />
@@ -35,7 +35,8 @@ export default {
   data(){
     return {
       showSnackbar: false,
-      text: ""
+      text: "",
+      overlayShowed: false
     }
   },
   components:{
@@ -46,6 +47,11 @@ export default {
   },
   computed:{
     ...mapGetters(['getLang']),
+  },
+  methods:{
+    toggleDemoOverlay(val){
+      this.overlayShowed= val;
+    }
   },
   watch: {
     getLang(newVal){
@@ -61,8 +67,28 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.v-application {
+  &[dir="ltr"] {
+    p, [class*="text-"], [class*="display-1"], [class*="subtitle-1"], [class*="subtitle-2"], [class*="title"] {
+      font-family: "Poppins", sans-serif !important;
+    }
+    font-family: "Poppins", sans-serif !important;
+  }
+  &[dir="rtl"] {
+    p, [class*="text-"], [class*="display-1"], [class*="subtitle-1"], [class*="subtitle-2"], [class*="title"] {
+      font-family: "Cairo", sans-serif !important;
+    }
+    font-family: "Cairo", sans-serif !important;
+  }
+}
+
 .main-bg-color {
-    background-color: #0057a8;
+  background-color: #0057a8;
+}
+
+.overlayShowed {
+  height: 100vh;
+  overflow: hidden;
 }
 </style>
