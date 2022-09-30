@@ -1,18 +1,20 @@
 <template>
   <v-app :dir="getLang === 'En' ? 'ltr' : 'rtl'" :class="{ 'overlayShowed' : overlayShowed}">
-    <v-snackbar color="#0057a8" class="font-weight-bold" top v-model="showSnackbar" :timeout="2000">
-      {{ text }}
-      <template v-slot:action="{ attrs }">
-        <v-btn
-          color="white"
-          text
-          v-bind="attrs"
-          @click="showSnackbar = false"
-        >
-          {{ getLang === 'En' ? 'Close' : 'إغلاق' }}
-        </v-btn>
-      </template>
-    </v-snackbar>
+    <!-- <v-container> -->
+      <v-snackbar max-width="260px" color="#0057a8" top v-model="showSnackbar" :timeout="2000">
+        {{ text }}
+        <template v-slot:action="{ attrs }">
+          <v-btn
+            color="white"
+            text
+            v-bind="attrs"
+            @click="showSnackbar = false"
+          >
+            {{ getLang === 'En' ? 'Close' : 'إغلاق' }}
+          </v-btn>
+        </template>
+      </v-snackbar>
+    <!-- </v-container> -->
     <NavbarEn v-if="getLang === 'En'" />
     <NavbarAr v-else />
     <v-main>
@@ -55,7 +57,6 @@ export default {
   },
   watch: {
     getLang(newVal){
-      console.log(newVal);
       if(newVal === "En"){
         this.text = "Language Changed to English";
       }else{
@@ -86,6 +87,10 @@ export default {
 .main-bg-color {
   background-color: #0057a8;
 }
+
+// .v-snack {
+  
+// }
 
 .overlayShowed {
   height: 100vh;

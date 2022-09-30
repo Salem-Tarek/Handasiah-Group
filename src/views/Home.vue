@@ -5,6 +5,7 @@
             <UnderSliderEn />
             <FeaturesEn />
             <ServicesEn />
+            <PartnersEn />
             <VideoDemoEn @overlaytoggled="toggleDemoOverlay" />
         </template>
         <template v-else>
@@ -12,6 +13,7 @@
             <UnderSliderAr />
             <FeaturesAr />
             <ServicesAr />
+            <PartnersAr />
             <VideoDemoAr @overlaytoggled="toggleDemoOverlay" />
         </template>
     </div>
@@ -25,6 +27,7 @@ import SliderEn from '../components/En/Home/SliderEn.vue'
 import UnderSliderEn from '../components/En/Home/UnderSliderEn.vue'
 import FeaturesEn from '../components/En/Home/FeaturesEn.vue'
 import ServicesEn from '../components/En/Home/ServicesEn.vue'
+import PartnersEn from '../components/En/Home/PartnersEn.vue'
 import VideoDemoEn from '../components/En/Home/VideoDemoEn.vue'
 
 // Arabic Components
@@ -32,6 +35,7 @@ import SliderAr from '../components/Ar/Home/SliderAr.vue'
 import UnderSliderAr from '../components/Ar/Home/UnderSliderAr.vue'
 import FeaturesAr from '../components/Ar/Home/FeaturesAr.vue'
 import ServicesAr from '../components/Ar/Home/ServicesAr.vue'
+import PartnersAr from '../components/Ar/Home/PartnersAr.vue'
 import VideoDemoAr from '../components/Ar/Home/VideoDemoAr.vue'
 
 export default {
@@ -41,12 +45,14 @@ export default {
         UnderSliderEn,
         FeaturesEn,
         ServicesEn,
+        PartnersEn,
         VideoDemoEn,
 
         SliderAr,
         UnderSliderAr,
         FeaturesAr,
         ServicesAr,
+        PartnersAr,
         VideoDemoAr,
     },
     computed:{
