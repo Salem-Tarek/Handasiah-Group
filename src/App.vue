@@ -59,8 +59,10 @@ export default {
     getLang(newVal){
       if(newVal === "En"){
         this.text = "Language Changed to English";
+        this.$vuetify.rtl = false;
       }else{
         this.text = "تم تغير اللغه إلى العربية";
+        this.$vuetify.rtl = true;
       }
       this.showSnackbar = true;
     }

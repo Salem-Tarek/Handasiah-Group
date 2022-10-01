@@ -59,13 +59,13 @@
                                 </template>
                                 <v-list class="font-weight-bold">
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">make a survey</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/survey-order">make a survey</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Service (Repair)</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-order">Service (Repair)</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Price offer</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/price-order">Price offer</router-link>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
@@ -146,13 +146,13 @@
                                     <v-expansion-panel-content>
                                         <v-list class="py-0">
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/about">make a survey</router-link>
+                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/survey-order">make a survey</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/about">Service (Repair)</router-link>
+                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/service-order">Service (Repair)</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/about">Price offer</router-link>
+                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/price-order">Price offer</router-link>
                                             </v-list-item>
                                         </v-list>
                                     </v-expansion-panel-content>

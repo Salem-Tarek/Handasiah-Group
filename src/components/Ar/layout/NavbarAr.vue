@@ -59,13 +59,13 @@
                                 </template>
                                 <v-list class="font-weight-bold">
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">إجراء معاينة</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/survey-order">إجراء معاينة</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">خدمة (صيانة)</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-order">خدمة (صيانة)</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">عرض سعر</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/price-order">عرض سعر</router-link>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
@@ -146,13 +146,13 @@
                                     <v-expansion-panel-content>
                                         <v-list class="py-0">
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/about">إجراء معاينة</router-link>
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/survey-order">إجراء معاينة</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/about">خدمة (صيانة)</router-link>
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-order">خدمة (صيانة)</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/about">عرض سعر</router-link>
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/price-order">عرض سعر</router-link>
                                             </v-list-item>
                                         </v-list>
                                     </v-expansion-panel-content>
