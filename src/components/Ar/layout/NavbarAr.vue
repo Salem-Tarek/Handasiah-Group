@@ -20,25 +20,25 @@
                                 </template>
                                 <v-list class="font-weight-bold">
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">إنذار حريق</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">إنذار حريق</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">مكافحة حريق</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">مكافحة حريق</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">منزل الذكي</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">منزل الذكي</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">ساعات حضور</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">ساعات حضور</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">إنذار سرقة</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">إنذار سرقة</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">أنظمة شبكات</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">أنظمة شبكات</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">تشطيبات</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">تشطيبات</router-link>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
@@ -106,25 +106,25 @@
                                     <v-expansion-panel-content>
                                         <v-list class="py-0">
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/about">إنذار حريق</router-link>
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">إنذار حريق</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/about">مكافحة حريق</router-link>
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">مكافحة حريق</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/about">منزل الذكي</router-link>
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">منزل الذكي</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/about">ساعات حضور</router-link>
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">ساعات حضور</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/about">إنذار سرقة</router-link>
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">إنذار سرقة</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/about">أنظمة شبكات</router-link>
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">أنظمة شبكات</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/about">تشطيبات سرقة</router-link>
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">تشطيبات سرقة</router-link>
                                             </v-list-item>
                                         </v-list>
                                     </v-expansion-panel-content>

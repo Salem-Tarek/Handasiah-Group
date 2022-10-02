@@ -20,25 +20,25 @@
                                 </template>
                                 <v-list class="font-weight-bold">
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Fire Alarm</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Fire Alarm</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Fire Fighting</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Fire Fighting</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Smart Home</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Smart Home</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Time Attendance Devices</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Time Attendance Devices</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Antitheft Alarm</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Antitheft Alarm</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Network Systems</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Network Systems</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Finishings</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Finishings</router-link>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
@@ -106,25 +106,25 @@
                                     <v-expansion-panel-content>
                                         <v-list class="py-0">
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/about">Fire Alarm</router-link>
+                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Fire Alarm</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/about">Fire Fighting</router-link>
+                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Fire Fighting</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/about">Smart Home</router-link>
+                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Smart Home</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/about">Time Attendance Devices</router-link>
+                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Time Attendance Devices</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/about">Antitheft Alarm</router-link>
+                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Antitheft Alarm</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/about">Network Systems</router-link>
+                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Network Systems</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/about">Finishings</router-link>
+                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Finishings</router-link>
                                             </v-list-item>
                                         </v-list>
                                     </v-expansion-panel-content>

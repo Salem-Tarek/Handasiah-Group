@@ -5,6 +5,7 @@ import About from "../views/About.vue";
 import ServiceOrder from "../views/ServiceOrder.vue";
 import SurveyOrder from "../views/SurveyOrder.vue";
 import PriceOrder from "../views/PriceOrder.vue";
+import Service from "../views/Service.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/price-order",
     name: "PriceOrder",
     component: PriceOrder,
+  },
+  {
+    path: "/service-page",
+    name: "Service",
+    component: Service,
   },
 ];
 
