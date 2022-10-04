@@ -77,7 +77,7 @@
                             dense
                         ></v-text-field>
                     </v-col>
-                    <v-col cols="12" md="12" class="py-0">
+                    <!-- <v-col cols="12" md="12" class="py-0">
                         <v-text-field
                             v-model="serviceForm.date"
                             :rules="rules.date"
@@ -86,7 +86,7 @@
                             outlined
                             dense
                         ></v-text-field>
-                    </v-col>    
+                    </v-col>     -->
                     <v-col cols="12" md="12" class="py-0">
                         <v-textarea
                             v-model="serviceForm.notes"
@@ -99,7 +99,7 @@
                         ></v-textarea>
                     </v-col>
                     <v-col cols="12" md="12" class="pt-0">
-                        <v-btn type="submit" class="text-uppercase font-weight-bold mb-5" dark block>Submit</v-btn>
+                        <v-btn type="submit" class="main-btn text-uppercase font-weight-bold mb-5" dark block>Submit</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -120,7 +120,7 @@ export default {
                 phone: "",
                 responsiblePerson: "",
                 clientField: "",
-                date: "",
+                // date: "",
                 notes: "",
             },
             rules: {
@@ -143,9 +143,9 @@ export default {
                 clientField: [
                     v => !!v || 'Client Field is required',
                 ],
-                date: [
-                    v => !!v || 'Date is required',
-                ],
+                // date: [
+                //     v => !!v || 'Date is required',
+                // ],
             }
         }
     }
@@ -153,5 +153,10 @@ export default {
 </script>
 
 <style>
-
+.main-btn {
+    letter-spacing: 0 !important;
+}
+.main-btn:hover, .main-btn:focus {
+    background-color: #0057A8 !important;
+}
 </style>

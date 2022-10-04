@@ -61,7 +61,7 @@
                         <v-text-field
                             v-model="serviceForm.system"
                             :rules="rules.system"
-                            label="النظام المراد إجراء المعاينة له"
+                            label="النظام المراد إجراء صيانته"
                             required
                             outlined
                             dense
@@ -71,7 +71,7 @@
                         <v-text-field
                             v-model="serviceForm.date"
                             :rules="rules.date"
-                            label="الموعد المناسب لاجراء المعاينة "
+                            label="الموعد المناسب لاجراء الصيانه "
                             required
                             outlined
                             dense
@@ -89,7 +89,7 @@
                         ></v-textarea>
                     </v-col>
                     <v-col cols="12" md="12" class="pt-0">
-                        <v-btn type="submit" class="text-uppercase font-weight-bold mb-5" dark block>إرسال</v-btn>
+                        <v-btn type="submit" class="main-btn text-uppercase font-weight-bold mb-5" dark block>إرسال</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -142,5 +142,10 @@ export default {
 </script>
 
 <style>
-
+.main-btn {
+    letter-spacing: 0 !important;
+}
+.main-btn:hover, .main-btn:focus {
+    background-color: #0057A8 !important;
+}
 </style>

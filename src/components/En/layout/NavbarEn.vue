@@ -20,6 +20,9 @@
                                 </template>
                                 <v-list class="font-weight-bold">
                                     <v-list-item>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Surveillance Systems</router-link>
+                                    </v-list-item>
+                                    <v-list-item>
                                         <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Fire Alarm</router-link>
                                     </v-list-item>
                                     <v-list-item>
@@ -38,13 +41,19 @@
                                         <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Network Systems</router-link>
                                     </v-list-item>
                                     <v-list-item>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Centrals Systems</router-link>
+                                    </v-list-item>
+                                    <v-list-item>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Air Conditioning Systems</router-link>
+                                    </v-list-item>
+                                    <v-list-item>
                                         <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Finishings</router-link>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
                         </v-list-item>
                         <v-list-item class="mr-3 px-0 text-uppercase subtitle-2 font-weight-bold">
-                            <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Shop</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/shop">Shop</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0 text-uppercase subtitle-2 font-weight-bold">
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Activities and Fields</router-link>
@@ -88,7 +97,7 @@
                 </v-app-bar-nav-icon>
             </v-app-bar>
             <!-- Navbar Navigation Drawer -->
-            <v-navigation-drawer width="262px" v-model="showDrawer" hide-overlay fixed stateless>
+            <v-navigation-drawer width="265px" v-model="showDrawer" hide-overlay fixed stateless>
                 <router-link to="/" class="d-flex justify-center">
                     <v-img class="d-flex justify-center" style="cursor: pointer" contain height="100px" width="100px" src="../../../assets/logo.png"></v-img>
                 </router-link>
@@ -105,6 +114,9 @@
                                     </v-expansion-panel-header>
                                     <v-expansion-panel-content>
                                         <v-list class="py-0">
+                                            <v-list-item class="mx-3 px-0 text-uppercase">
+                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Surveillance Systems</router-link>
+                                            </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
                                                 <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Fire Alarm</router-link>
                                             </v-list-item>
@@ -124,6 +136,12 @@
                                                 <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Network Systems</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
+                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Centrals Systems</router-link>
+                                            </v-list-item>
+                                            <v-list-item class="mx-3 px-0 text-uppercase">
+                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Air Conditioning Systems</router-link>
+                                            </v-list-item>
+                                            <v-list-item class="mx-3 px-0 text-uppercase">
                                                 <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Finishings</router-link>
                                             </v-list-item>
                                         </v-list>
@@ -132,7 +150,7 @@
                             </v-expansion-panels>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0 text-uppercase">
-                            <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Shop</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/shop">Shop</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0 text-uppercase">
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Activities and Fields</router-link>

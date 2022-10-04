@@ -8,17 +8,20 @@
                     </router-link>
                     <v-list class="d-none d-md-flex">
                         <v-list-item class="mx-3 px-0">
-                            <router-link class="title text-decoration-none grey--text text--darken-4" to="/">الرئيسية</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/">الرئيسية</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0" id="servicesAr">
                             <v-menu transition="slide-y-transition" bottom offset-y open-on-hover min-width="150px" attach="#servicesAr">
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on" class="d-flex align-center justify-space-between">
-                                        <span class="title text-decoration-none grey--text text--darken-4">الخدمات</span>
+                                        <span class="text-decoration-none grey--text text--darken-4">الخدمات</span>
                                         <v-icon left>mdi-chevron-down</v-icon>
                                     </span>
                                 </template>
                                 <v-list class="font-weight-bold">
+                                    <v-list-item>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">أنظمة المراقبة</router-link>
+                                    </v-list-item>
                                     <v-list-item>
                                         <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">إنذار حريق</router-link>
                                     </v-list-item>
@@ -38,22 +41,28 @@
                                         <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">أنظمة شبكات</router-link>
                                     </v-list-item>
                                     <v-list-item>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">أنظمة السنترالات</router-link>
+                                    </v-list-item>
+                                    <v-list-item>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">أنظمة التكييفات</router-link>
+                                    </v-list-item>
+                                    <v-list-item>
                                         <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">تشطيبات</router-link>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
                         </v-list-item>
                         <v-list-item class="ml-3 px-0">
-                            <router-link class="title text-decoration-none grey--text text--darken-4" to="/men">المتجر</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/shop">المتجر</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0">
-                            <router-link class="title text-decoration-none grey--text text--darken-4" to="/men">الأنشطة والمجالات</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/men">الأنشطة والمجالات</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0" id="ordersAr">
                             <v-menu transition="slide-y-transition" bottom offset-y open-on-hover min-width="130px" attach="#ordersAr">
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on" class="d-flex align-center justify-space-between">
-                                        <span class="title text-decoration-none grey--text text--darken-4">الطلبات</span>
+                                        <span class="text-decoration-none grey--text text--darken-4">الطلبات</span>
                                         <v-icon left>mdi-chevron-down</v-icon>
                                     </span>
                                 </template>
@@ -71,10 +80,10 @@
                             </v-menu>
                         </v-list-item>
                         <v-list-item class="ml-3 px-0">
-                            <router-link class="title text-decoration-none grey--text text--darken-4" to="/about">عننا</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/about">عننا</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0">
-                            <router-link class="title text-decoration-none grey--text text--darken-4" to="/contact">إتصل بنا</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/contact">إتصل بنا</router-link>
                         </v-list-item>
                         <v-list-item class="px-0" style="max-width: fit-content">
                             <v-img v-if="getLang === 'Ar'" style="cursor: pointer" contain max-height="25px" width="50px" src="../../../assets/flags/america.svg" @click="toggleLang"></v-img>
@@ -106,6 +115,9 @@
                                     <v-expansion-panel-content>
                                         <v-list class="py-0">
                                             <v-list-item class="mx-3 px-0 text-uppercase">
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">أنظمة المراقبة</router-link>
+                                            </v-list-item>
+                                            <v-list-item class="mx-3 px-0 text-uppercase">
                                                 <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">إنذار حريق</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
@@ -124,6 +136,12 @@
                                                 <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">أنظمة شبكات</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">أنظمة السنترالات</router-link>
+                                            </v-list-item>
+                                            <v-list-item class="mx-3 px-0 text-uppercase">
+                                                <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">أنظمة التكييفات</router-link>
+                                            </v-list-item>
+                                            <v-list-item class="mx-3 px-0 text-uppercase">
                                                 <router-link class="font-weight-bold subtitle-1 text-decoration-none grey--text text--darken-4" to="/service-page">تشطيبات سرقة</router-link>
                                             </v-list-item>
                                         </v-list>
@@ -132,7 +150,7 @@
                             </v-expansion-panels>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0">
-                            <router-link class="title text-decoration-none grey--text text--darken-4" to="/men">المتجر</router-link>
+                            <router-link class="title text-decoration-none grey--text text--darken-4" to="/shop">المتجر</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0">
                             <router-link class="title text-decoration-none grey--text text--darken-4" to="/men">الأنشطة والمجالات</router-link>

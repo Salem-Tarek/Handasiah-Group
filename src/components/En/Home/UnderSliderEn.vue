@@ -3,7 +3,7 @@
         <v-container>
             <div class="d-flex justify-center justify-md-space-between align-center flex-column flex-md-row" style="gap:20px">
                 <p class="text-subtitle-1 font-weight-bold text-sm-h5 mb-0 text-center">Looking for a quality and affordable service?</p>
-                <v-btn class="text-uppercase font-weight-bold" dark>Get an online quote</v-btn>
+                <v-btn class="text-uppercase font-weight-bold" dark to="/price-order">Get an online quote</v-btn>
             </div>
         </v-container>
     </div>

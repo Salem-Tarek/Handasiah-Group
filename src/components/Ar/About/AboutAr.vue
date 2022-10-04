@@ -3,19 +3,19 @@
         <div class="subheader d-flex align-end">
             <v-overlay :absolute="true" :value="true" :opacity="0.7" :z-index="0"></v-overlay>
             <v-container style="z-index: 1">
-                <div class="content white--text">
-                    <p class="text-uppercase display-1 font-weight-bold">عنا</p>
+                <div class="content white--text text-center">
+                    <p class="text-uppercase display-1 font-weight-bold">عنـــا</p>
                     <p class="text-subtitle-2 text-sm-h6">"احد الشركات الرائدة فى مجال الأنظمة الأمنية و التشطيبات و أنظمة مكافحة الحرائق"</p>
                 </div>
             </v-container>
         </div>
         <v-container>
             <div class="about-section-1 py-12">
-                <v-row class="flex-column">
-                    <v-col cols="12" sm="6" class="mx-auto pa-6">
+                <v-row class="align-center">
+                    <v-col cols="12" md="6" class="mx-auto pa-6">
                         <v-img src="../../../assets/about_1.jpg" contain></v-img>
                     </v-col>
-                    <v-col cols="12" sm="6" class="mx-auto text-center px-6">
+                    <v-col cols="12" md="6" class="mx-auto text-center px-6">
                         <h1 class="text-uppercase">"خبراء أمن المنزل"</h1>
                         <p class="subtitle-2 mb-0">
                             تمتاز الشركة الهندسية بالتنوع فى تقديم مجالات الأنظمة الأمنية مع التفوق فى اداء كل نظام وذلك من خلال التعدد فى منظومة القسم الفنى المختص لكل نظام .
@@ -95,18 +95,18 @@ export default {
 </script>
 
 <style>
-.subheader {
+.aboutAr .subheader {
     background:url('../../../assets/subheader.jpg') no-repeat center center;
     background-size: cover;
     height: 200px;
     position: relative;
 }
 
-.about-section-1 {
+.aboutAr .about-section-1 {
     overflow: hidden;
 }
 
-.feat .v-icon {
+.aboutAr  .feat .v-icon {
     color:#0057a8;
     font-size: 50px !important;
 }

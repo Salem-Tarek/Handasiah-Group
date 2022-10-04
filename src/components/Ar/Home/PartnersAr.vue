@@ -1,6 +1,6 @@
 <template>
     <v-container fluid class="py-7">
-        <p class="headline main-text-color font-weight-medium">شركات تم العمل معها</p>
+        <p class="headline main-title font-weight-medium mx-auto mb-5 white--text text-center py-3 px-5">شركات تم العمل معها</p>
         <carousel dir="ltr" :autoplay="true" :nav="false" :responsive="{ 0:{items:1}, 600:{items:2}, 700: {items:3}, 1000:{items:4} }" :dots="false">
             <v-img contain height="200px" src="../../../assets/partners/dohler.jpeg"></v-img>
             <v-img contain height="200px" src="../../../assets/partners/fox.jpeg"></v-img>
@@ -23,7 +23,10 @@ export default {
 </script>
 
 <style>
-.main-text-color {
-    color: #0057a8 !important;
+.main-title {
+    background-color: #0057A8;
+    border-radius: 50px;
+    width: fit-content;
 }
+
 </style>

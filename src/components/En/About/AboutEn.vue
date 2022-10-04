@@ -3,7 +3,7 @@
         <div class="subheader d-flex align-end">
             <v-overlay :absolute="true" :value="true" :opacity="0.7" :z-index="0"></v-overlay>
             <v-container style="z-index: 1">
-                <div class="content white--text">
+                <div class="content white--text text-center">
                     <p class="text-uppercase display-1 font-weight-bold">About Us</p>
                     <p class="text-subtitle-2 text-sm-h6">"One of the leading companies in the field of security systems, finishes and firefighting systems"</p>
                 </div>
@@ -11,11 +11,11 @@
         </div>
         <v-container>
             <div class="about-section-1 py-12">
-                <v-row class="flex-column">
-                    <v-col cols="12" sm="6" class="mx-auto pa-6">
+                <v-row class="align-center">
+                    <v-col cols="12" md="6" class="mx-auto pa-6">
                         <v-img src="../../../assets/about_1.jpg" contain></v-img>
                     </v-col>
-                    <v-col cols="12" sm="6" class="mx-auto text-center px-6">
+                    <v-col cols="12" md="6" class="mx-auto text-center px-6">
                         <h1 class="text-uppercase">"Home Security Experts"</h1>
                         <p class="subtitle-2 mb-0">
                             The engineering company is distinguished by its diversity in providing the fields of security systems with superiority in the performance of each system, through the multiplicity in the system of the specialized technical department for each system.
@@ -91,7 +91,7 @@ export default {
 
 <style lang="scss">
 
-.subheader {
+.aboutEn .subheader {
     background:url('../../../assets/subheader.jpg') no-repeat center center;
     background-size: cover;
     height: 200px;

@@ -52,23 +52,31 @@
             <div class="social-media d-flex justify-center">
                 <v-list class="d-flex align-center transparent">
                     <v-list-item class="px-2">
-                        <v-btn fab small depressed to="/">
-                            <v-icon>mdi-facebook</v-icon>
+                        <v-btn fab small depressed>
+                            <a class="text-decoration-none" href="https://www.facebook.com/">
+                                <v-icon>mdi-facebook</v-icon>
+                            </a>
                         </v-btn>
                     </v-list-item>
                     <v-list-item class="px-2">
-                        <v-btn fab small depressed to="/">
-                            <v-icon>mdi-twitter</v-icon>
+                        <v-btn fab small depressed>
+                            <a class="text-decoration-none" href="mailto:handasiahgroup@gmail.com">
+                                <v-icon>mdi-email</v-icon>
+                            </a>
                         </v-btn>
                     </v-list-item>
                     <v-list-item class="px-2">
-                        <v-btn fab small depressed to="/">
-                            <v-icon>mdi-google</v-icon>
+                        <v-btn fab small depressed>
+                            <a class="text-decoration-none" href="https://wa.me/201552021453">
+                                <v-icon>mdi-whatsapp</v-icon>
+                            </a>
                         </v-btn>
                     </v-list-item>
                     <v-list-item class="px-2">
-                        <v-btn fab small depressed to="/">
-                            <v-icon>mdi-vimeo</v-icon>
+                        <v-btn fab small depressed>
+                            <a class="text-decoration-none" href="https://www.linkedin.com/feed/">
+                                <v-icon>mdi-linkedin</v-icon>
+                            </a>
                         </v-btn>
                     </v-list-item>
                 </v-list>
@@ -87,9 +95,6 @@ export default {
 </script>
 
 <style lang="scss">
-footer {
-    font-family: 'Poppins', sans-serif !important;
-}
 .contacts .v-list-item a {
     transition: 0.3s
 }
@@ -102,20 +107,20 @@ footer {
     color: #FFF !important;
 }
 
-.v-list .v-list-item {
-    a {
+.social-media .v-list .v-list-item {
+    .v-btn {
         transition: 0.3s;
+        a {
+            i {
+                color: rgba(0, 0, 0, 0.87);
+            }
+        }
     }
-    & > a:hover {
-        color: #FFF !important;
+    &:hover > .v-btn{
+        background-color: #0057a8 !important;
+        a, i {
+            color: #FFF !important;
+        }
     }
-}
-
-.social-media .v-list-item a {
-    transition:0.3s;
-}
-.social-media .v-list-item:hover a {
-    background-color: #0057a8 !important;
-    color: #FFF;
 }
 </style>

@@ -6,6 +6,8 @@ import ServiceOrder from "../views/ServiceOrder.vue";
 import SurveyOrder from "../views/SurveyOrder.vue";
 import PriceOrder from "../views/PriceOrder.vue";
 import Service from "../views/Service.vue";
+import Shop from "../views/Shop.vue";
+// import ProductPage from "../views/ProductPage.vue";
 
 Vue.use(VueRouter);
 
@@ -40,6 +42,16 @@ const routes = [
     name: "Service",
     component: Service,
   },
+  {
+    path: "/shop",
+    name: "Shop",
+    component: Shop,
+  },
+  // {
+  //   path: "/product-page",
+  //   name: "ProductPage",
+  //   component: ProductPage,
+  // },
 ];
 
 const router = new VueRouter({
