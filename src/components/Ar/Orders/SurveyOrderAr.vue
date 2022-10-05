@@ -114,26 +114,26 @@ export default {
             },
             rules: {
                 name: [
-                    v => !!v || 'Name is required',
+                    v => !!v || 'الاسم مطلوب',
                 ],
                 email: [
-                    v => !!v || 'Email is required',
-                    v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+                    v => !!v || 'البريد الاكتروني مطلوب',
+                    v => /.+@.+\..+/.test(v) || 'يجب ان يكون البريد الاكتروني صحيح',
                 ],
                 address: [
-                    v => !!v || 'Address is required',
+                    v => !!v || 'العنوان مطلوب',
                 ],
                 location: [
-                    v => !!v || 'Location is required',
+                    v => !!v || 'العنوان عن طريق الواتس اب مطلوب',
                 ],
                 phone: [
-                    v => !!v || 'Phone is required',
+                    v => !!v || 'رقم الهاتف مطلوب',
                 ],
                 system: [
-                    v => !!v || 'System is required',
+                    v => !!v || 'النظام المراد إجراء معاينة له مطلوب',
                 ],
                 date: [
-                    v => !!v || 'Date is required',
+                    v => !!v || 'الموعد المناسب لإجراء المعاينة مطلوب',
                 ],
             }
         }

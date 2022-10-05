@@ -3,8 +3,11 @@
         <v-container>
             <h1 class="text-center main-text-color text-uppercase mb-5">المنتجـــات</h1>
             <v-row>
+                <v-col cols="12">
+                    <ProductsFilterAr />
+                </v-col>
                 <v-col v-for="i in products" :key="i" cols="12" sm="6" md="4" lg="3">
-                    <!-- <router-link class="text-decoration-none" to="/product-page"> -->
+                    <router-link class="text-decoration-none" to="product-page">
                             <v-card class="mx-auto d-flex flex-column" max-width="374" elevation="0" min-height="400px">
                                 <v-img
                                 style="border: 1px solid #333"
@@ -17,7 +20,7 @@
                                     - 50%
                                 </div>
                                 <div class="d-flex align-center justify-space-between mt-5">
-                                    <v-card-title class="pt-0 pl-0 pb-0 text-uppercase subtitle-1 font-weight-bold main-text-color">استشعار الدخان</v-card-title>
+                                    <v-card-title class="pt-0 pr-0 pb-0 text-uppercase subtitle-1 font-weight-bold main-text-color">استشعار الدخان</v-card-title>
                                     <!-- <v-hover v-slot="{ hover }">
                                         <v-icon :color="hover ? '#0057A8' : ''">
                                             {{ hover ? 'mdi-heart' : 'mdi-heart-outline' }}
@@ -25,16 +28,16 @@
                                     </v-hover> -->
                                 </div>
                                 <v-card-text class="pa-2">
-                                    <p class="caption grey--text mb-0">هذا المنتج جيد جدا و يستخدم لجميع الاماكن لذلك هذا المنتج جيد جدا و يستخدم لجميع الاماكن لذلك .</p>
+                                    <p class="caption grey--text mb-0">هذا المنتج جيد جدا و يستخدم لجميع الاماكن لذلك...إلخ .</p>
                                 </v-card-text>
                                 
                                 <v-card-text class="pa-0 d-flex justify-space-between align-center">
-                                    <v-card-subtitle class="pl-2 black--text font-weight-bold">
+                                    <v-card-subtitle class="pr-2 black--text font-weight-bold">
                                         <!-- ${{ parseFloat(product.price).toFixed(2) }} -->
                                         <span>${{ parseFloat(50).toFixed(2) }}</span> 
                                         <span v-if="i % 3 === 0" class="ml-1 grey--text text-decoration-line-through body-2 font-weight-bold">$100.00</span>
                                     </v-card-subtitle>
-                                    <div class="rating">
+                                    <!-- <div class="rating">
                                         <v-rating
                                         :value="4"
                                         color="amber"
@@ -42,10 +45,10 @@
                                         readonly
                                         size="14"
                                         ></v-rating>
-                                    </div>
+                                    </div> -->
                                 </v-card-text>
                             </v-card>
-                    <!-- </router-link> -->
+                    </router-link>
                 </v-col>
             </v-row>
         </v-container>
@@ -53,6 +56,7 @@
 </template>
 
 <script>
+import ProductsFilterAr from './ProductsFilterAr.vue'
 export default {
     name: "ShopAr",
     data(){
@@ -60,6 +64,9 @@ export default {
             products: 10,
             discount: true
         }
+    },
+    components:{
+        ProductsFilterAr,
     }
 }
 </script>

@@ -7,7 +7,8 @@ import SurveyOrder from "../views/SurveyOrder.vue";
 import PriceOrder from "../views/PriceOrder.vue";
 import Service from "../views/Service.vue";
 import Shop from "../views/Shop.vue";
-// import ProductPage from "../views/ProductPage.vue";
+import ProductPage from "../views/ProductPage.vue";
+import Contact from "../views/Contact.vue";
 
 Vue.use(VueRouter);
 
@@ -47,11 +48,16 @@ const routes = [
     name: "Shop",
     component: Shop,
   },
-  // {
-  //   path: "/product-page",
-  //   name: "ProductPage",
-  //   component: ProductPage,
-  // },
+  {
+    path: "/product-page",
+    name: "ProductPage",
+    component: ProductPage,
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: Contact,
+  },
 ];
 
 const router = new VueRouter({

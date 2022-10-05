@@ -3,8 +3,11 @@
         <v-container>
             <h1 class="text-center main-text-color text-uppercase mb-5">Products</h1>
             <v-row>
+                <v-col cols="12">
+                    <ProductsFilterEn />
+                </v-col>
                 <v-col v-for="i in products" :key="i" cols="12" sm="6" md="4" lg="3">
-                    <!-- <router-link class="text-decoration-none" to="/product-page"> -->
+                    <router-link class="text-decoration-none" to="product-page">
                             <v-card class="mx-auto d-flex flex-column" elevation="0" max-width="374" min-height="400px">
                                 <v-img
                                 style="border: 1px solid #333"
@@ -25,15 +28,15 @@
                                     </v-hover> -->
                                 </div>
                                 <v-card-text class="pa-2">
-                                    <p class="caption grey--text mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor sint nam nobis corrupti voluptate cupiditate quas odio corporis maiores ullam.</p>
+                                    <p class="caption grey--text mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit...etc</p>
                                 </v-card-text>
 
-                                <v-card-text class="pa-0 d-flex justify-space-between align-center">
+                                <v-card-text class="pa-0">
                                     <v-card-subtitle class="pl-2 black--text font-weight-bold">
                                         <span v-if="i % 3 === 0" class="mr-2 grey--text text-decoration-line-through body-2 font-weight-bold">$100.00</span>
                                         <span>${{ parseFloat(50).toFixed(2) }}</span> 
                                     </v-card-subtitle>
-                                    <div class="rating">
+                                    <!-- <div class="rating">
                                         <v-rating
                                         :value="4"
                                         color="amber"
@@ -41,10 +44,10 @@
                                         readonly
                                         size="14"
                                         ></v-rating>
-                                    </div>
+                                    </div> -->
                                 </v-card-text>
                             </v-card>
-                    <!-- </router-link> -->
+                    </router-link>
                 </v-col>
             </v-row>
         </v-container>
@@ -52,6 +55,7 @@
 </template>
 
 <script>
+import ProductsFilterEn from './ProductsFilterEn.vue'
 export default {
     name: "ShopEn",
     data(){
@@ -59,12 +63,15 @@ export default {
             products: 10,
             discount: true
         }
+    },
+    components:{
+        ProductsFilterEn,
     }
 }
 </script>
 
 <style>
-.sale {
+.products .sale {
     background-color: #0057a8;
     width:50px;
     height:30px;

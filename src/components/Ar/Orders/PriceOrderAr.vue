@@ -77,16 +77,6 @@
                             dense
                         ></v-text-field>
                     </v-col>
-                    <!-- <v-col cols="12" md="12" class="py-0">
-                        <v-text-field
-                            v-model="serviceForm.date"
-                            :rules="rules.date"
-                            label="الموعد المناسب لاجراء المعاينة "
-                            required
-                            outlined
-                            dense
-                        ></v-text-field>
-                    </v-col>     -->
                     <v-col cols="12" md="12" class="py-0">
                         <v-textarea
                             v-model="serviceForm.notes"
@@ -120,7 +110,6 @@ export default {
                 phone: "",
                 responsiblePerson: "",
                 clientField: "",
-                // date: "",
                 notes: "",
             },
             rules: {
@@ -143,9 +132,6 @@ export default {
                 clientField: [
                     v => !!v || 'مجال نشاط العميل مطلوب',
                 ],
-                // date: [
-                //     v => !!v || 'الموعد مطلوب',
-                // ],
             }
         }
     }

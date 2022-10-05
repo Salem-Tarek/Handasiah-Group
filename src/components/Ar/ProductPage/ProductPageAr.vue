@@ -9,13 +9,13 @@
                     <v-img style="z-index: 1" max-height="400px" src="../../../assets/prod-1.jpg" alt="Product Page"></v-img>
                 </v-col>
                 <v-col cols="12" md="6">
-                    <h1 class="text-uppercase main-text-color">Smoke Sensor</h1>
+                    <h1 class="text-uppercase main-text-color">مستشعر الدخان</h1>
                     <div class="d-flex align-center my-5">
                         <span v-if="discount" class="mr-2 grey--text text-decoration-line-through subtitle-1 font-weight-black">$100.00</span>
                         <h3 class="font-weight-bold mr-3">${{ parseFloat(50).toFixed(2) }}</h3>
                     </div>
                     <p class="subtitle-1 grey--text my-5">
-                        <span class="font-weight-bold black--text">Description:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor sint nam nobis corrupti voluptate cupiditate quas odio corporis maiores ullam.
+                        <span class="font-weight-bold black--text">الوصف:</span> هذا المنتج يمكن استخدامه فى استشعار الدخان الناتج من الحرائق و يمكن تتبعه بدقه المنتج يمكن استخدامه فى استشعار الدخان الناتج من الحرائق و يمكن تتبعه بدقه شديدة.
                     </p>
                 </v-col>
             </v-row>
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-    name: "ProductPageEn",
+    name: "ProductPageAr",
     data(){
         return {
             discount: true,
@@ -41,7 +41,7 @@ export default {
     height:30px;
     position:absolute;
     top:20px;
-    left:20px;
+    right:20px;
 }
 
 .main-text-color {

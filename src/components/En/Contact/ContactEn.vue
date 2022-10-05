@@ -1,12 +1,12 @@
 <template>
-    <div class="priceOrderEn">
-        <h1 class="text-center text-uppercase mb-5 main-text-color">Price Offer Order</h1>
-        <v-form ref="priceFormEn">
+    <div class="contactEn">
+        <h1 class="text-center text-uppercase mb-5 main-text-color">Contact Us</h1>
+        <v-form ref="contactFormEn">
             <v-container>
                 <v-row>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.name"
+                            v-model="contactForm.name"
                             :rules="rules.name"
                             label="Name"
                             required
@@ -16,7 +16,7 @@
                     </v-col>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.email"
+                            v-model="contactForm.email"
                             :rules="rules.email"
                             label="Email"
                             type="email"
@@ -25,20 +25,22 @@
                             dense
                         ></v-text-field>
                     </v-col>
-                    <v-col cols="12" md="8" class="py-0">
+                    <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.address"
-                            :rules="rules.address"
-                            label="Address"
+                            v-model="contactForm.phone"
+                            :rules="rules.phone"
+                            label="Phone"
+                            type="number"
+                            hide-spin-buttons
                             required
                             outlined
                             dense
                         ></v-text-field>
                     </v-col>
-                    <v-col cols="12" md="4" class="py-0">
+                    <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.phone"
-                            :rules="rules.phone"
+                            v-model="contactForm.Whatsapp"
+                            :rules="rules.Whatsapp"
                             label="Phone(Whatsapp)"
                             type="number"
                             hide-spin-buttons
@@ -48,40 +50,10 @@
                         ></v-text-field>
                     </v-col>
                     <v-col cols="12" md="12" class="py-0">
-                        <v-text-field
-                            v-model="serviceForm.offreDetails"
-                            :rules="rules.offreDetails"
-                            label="Offer Details "
-                            required
-                            outlined
-                            dense
-                        ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="6" class="py-0">
-                        <v-text-field
-                            v-model="serviceForm.clientField"
-                            :rules="rules.clientField"
-                            label="client Field Activity"
-                            required
-                            outlined
-                            dense
-                        ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="6" class="py-0">
-                        <v-text-field
-                            v-model="serviceForm.responsiblePerson"
-                            :rules="rules.responsiblePerson"
-                            label="Client Responsible Person"
-                            required
-                            outlined
-                            dense
-                        ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="12" class="py-0">
                         <v-textarea
-                            v-model="serviceForm.notes"
-                            :rules="rules.notes"
-                            label="Notes"
+                            v-model="contactForm.subject"
+                            :rules="rules.subject"
+                            label="Subject"
                             required
                             outlined
                             dense
@@ -99,18 +71,15 @@
 
 <script>
 export default {
-    name: "PriceOrderEn",
+    name: "ContactEn",
     data(){
         return {
-            serviceForm: {
+            contactForm: {
                 name: "",
                 email: "",
-                address: "",
-                offreDetails: "",
                 phone: "",
-                responsiblePerson: "",
-                clientField: "",
-                notes: "",
+                Whatsapp: "",
+                subject: "",
             },
             rules: {
                 name: [
@@ -120,17 +89,14 @@ export default {
                     v => !!v || 'Email is required',
                     v => /.+@.+\..+/.test(v) || 'Email must be valid',
                 ],
-                address: [
-                    v => !!v || 'Address is required',
-                ],
-                offreDetails: [
-                    v => !!v || 'Offre Details is required',
-                ],
                 phone: [
                     v => !!v || 'Phone is required',
                 ],
-                clientField: [
-                    v => !!v || 'Client Field is required',
+                Whatsapp: [
+                    v => !!v || 'Whatsapp Number is required',
+                ],
+                subject: [
+                    v => !!v || 'Subject is required',
                 ],
             }
         }

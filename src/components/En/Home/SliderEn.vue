@@ -17,35 +17,35 @@
 
 <script>
 export default {
-    name: "Slider",
-    data(){
-        return {
-            slides:[
-              {
-                src: require('../../../assets/slider/slide_1.jpg'),
-              },
-              {
-                src: require('../../../assets/slider/slide_2.jpg'),
-              },
-              {
-                src: require('../../../assets/slider/slide_3.jpg'),
-              },
-            ]
-        }
-    },
-    methods: {
-        move(amount) {
-            let newActive;
-            const newIndex = this.active + amount
-            if (newIndex > this.slides){
-                newActive = 1
-            }
-            if (newIndex === 0){
-                newActive = this.slides
-            }
-            this.active = newActive || newIndex
+  name: "Slider",
+  data(){
+    return {
+      slides:[
+        {
+          src: require('../../../assets/slider/slide_1.jpg'),
         },
+        {
+          src: require('../../../assets/slider/slide_2.jpg'),
+        },
+        {
+          src: require('../../../assets/slider/slide_3.jpg'),
+        },
+      ]
     }
+  },
+  methods: {
+    move(amount) {
+      let newActive;
+      const newIndex = this.active + amount
+      if (newIndex > this.slides){
+          newActive = 1
+      }
+      if (newIndex === 0){
+          newActive = this.slides
+      }
+      this.active = newActive || newIndex
+    },
+  },
 }
 </script>
 
