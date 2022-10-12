@@ -6,7 +6,7 @@ import ServiceOrder from "../views/ServiceOrder.vue";
 import SurveyOrder from "../views/SurveyOrder.vue";
 import PriceOrder from "../views/PriceOrder.vue";
 import Service from "../views/Service.vue";
-import Shop from "../views/Shop.vue";
+// import Shop from "../views/Shop.vue";
 import ProductPage from "../views/ProductPage.vue";
 import Contact from "../views/Contact.vue";
 
@@ -43,11 +43,11 @@ const routes = [
     name: "Service",
     component: Service,
   },
-  {
-    path: "/shop",
-    name: "Shop",
-    component: Shop,
-  },
+  // {
+  //   path: "/shop",
+  //   name: "Shop",
+  //   component: Shop,
+  // },
   {
     path: "/product-page",
     name: "ProductPage",

@@ -18,8 +18,7 @@
                         <v-text-field
                             v-model="serviceForm.email"
                             :rules="rules.email"
-                            label="الإيميل"
-                            type="email"
+                            label="البريد الالكترونى"
                             required
                             outlined
                             dense
@@ -49,9 +48,8 @@
                     </v-col>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.location"
-                            :rules="rules.location"
-                            label="العنوان عن طريق الواتس اب"
+                            v-model="serviceForm.responsiblePerson"
+                            label="الشخص المسئول لدى العميل"
                             required
                             outlined
                             dense
@@ -80,7 +78,6 @@
                     <v-col cols="12" md="12" class="py-0">
                         <v-textarea
                             v-model="serviceForm.notes"
-                            :rules="rules.notes"
                             label="ملاحظات من العميل"
                             required
                             outlined
@@ -106,7 +103,7 @@ export default {
                 name: "",
                 email: "",
                 address: "",
-                location: "",
+                responsiblePerson: "",
                 phone: "",
                 system: "",
                 date: "",
@@ -122,9 +119,6 @@ export default {
                 ],
                 address: [
                     v => !!v || 'العنوان مطلوب',
-                ],
-                location: [
-                    v => !!v || 'العنوان عن طريق الواتس اب مطلوب',
                 ],
                 phone: [
                     v => !!v || 'رقم الهاتف مطلوب',

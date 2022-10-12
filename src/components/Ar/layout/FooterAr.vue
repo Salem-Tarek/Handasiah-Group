@@ -10,22 +10,22 @@
                     </v-col>
                     <v-col md="4" cols="12" class="d-flex justify-md-center justify-start">
                         <v-list dense class="transparent">
-                            <v-list-item>
+                            <v-list-item class="px-0">
                                 <v-list-item-title class="font-weight-bold white--text title">
                                     إكتشف
                                 </v-list-item-title>
                             </v-list-item>
-                            <v-list-item>
-                                <router-link class="grey--text text-decoration-none title" to="/">عننا</router-link>
+                            <v-list-item class="px-0 my-3">
+                                <router-link class="grey--text text-decoration-none" to="/">الرئيسية</router-link>
                             </v-list-item>
-                            <v-list-item>
-                                <router-link class="grey--text text-decoration-none title" to="/">الأسعار</router-link>
+                            <v-list-item class="px-0 my-3">
+                                <router-link class="grey--text text-decoration-none" to="/about">عننا</router-link>
                             </v-list-item>
-                            <v-list-item>
-                                <router-link class="grey--text text-decoration-none title" to="/">إتصل بنا</router-link>
-                            </v-list-item>
-                            <v-list-item>
-                                <router-link class="grey--text text-decoration-none title" to="/">المتجر</router-link>
+                            <!-- <v-list-item class="px-0 my-3">
+                                <router-link class="grey--text text-decoration-none" to="/shop">المتجر</router-link>
+                            </v-list-item> -->
+                            <v-list-item class="px-0 my-3">
+                                <router-link class="grey--text text-decoration-none" to="/contact">إتصل بنا</router-link>
                             </v-list-item>
                         </v-list>
                     </v-col>
@@ -50,32 +50,32 @@
                     </v-col>
                 </v-row>
             </div>
-            <div class="social-media d-flex justify-center">
+            <div class="social-media d-flex justify-center" style="direction: ltr">
                 <v-list class="d-flex align-center transparent">
                     <v-list-item class="px-2">
                         <v-btn fab small depressed>
-                            <a class="text-decoration-none" href="https://www.facebook.com/">
+                            <a class="text-decoration-none" target="_blank" href="https://www.facebook.com/">
                                 <v-icon>mdi-facebook</v-icon>
                             </a>
                         </v-btn>
                     </v-list-item>
                     <v-list-item class="px-2">
                         <v-btn fab small depressed>
-                            <a class="text-decoration-none" href="mailto:handasiahgroup@gmail.com">
+                            <a class="text-decoration-none" target="_blank" href="mailto:handasiahgroup@gmail.com">
                                 <v-icon>mdi-email</v-icon>
                             </a>
                         </v-btn>
                     </v-list-item>
                     <v-list-item class="px-2">
                         <v-btn fab small depressed>
-                            <a class="text-decoration-none" href="https://wa.me/201552021453">
+                            <a class="text-decoration-none" target="_blank" href="https://wa.me/201552021453">
                                 <v-icon>mdi-whatsapp</v-icon>
                             </a>
                         </v-btn>
                     </v-list-item>
                     <v-list-item class="px-2">
                         <v-btn fab small depressed>
-                            <a class="text-decoration-none" href="https://www.linkedin.com/feed/">
+                            <a class="text-decoration-none" target="_blank" href="https://www.linkedin.com/feed/">
                                 <v-icon>mdi-linkedin</v-icon>
                             </a>
                         </v-btn>

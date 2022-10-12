@@ -1,12 +1,12 @@
 <template>
-    <nav class="ar">
+    <nav class="ar grey lighten-4">
         <v-container class="py-1 px-0">
             <v-app-bar flat style="position: relative; z-index: 3">
                 <div class="d-flex align-center justify-space-between" style="width: 100%">
                     <router-link to="/">
                         <v-img contain height="100px" width="100px" src="../../../assets/logo.png"></v-img>
                     </router-link>
-                    <v-list class="d-none d-md-flex">
+                    <v-list class="d-none d-md-flex grey lighten-4">
                         <v-list-item class="mx-3 px-0">
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/">الرئيسية</router-link>
                         </v-list-item>
@@ -52,12 +52,9 @@
                                 </v-list>
                             </v-menu>
                         </v-list-item>
-                        <v-list-item class="ml-3 px-0">
+                        <!-- <v-list-item class="ml-3 px-0">
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/shop">المتجر</router-link>
-                        </v-list-item>
-                        <v-list-item class="mx-3 px-0">
-                            <router-link class="text-decoration-none grey--text text--darken-4" to="/men">الأنشطة والمجالات</router-link>
-                        </v-list-item>
+                        </v-list-item> -->
                         <v-list-item class="mx-3 px-0" id="ordersAr">
                             <v-menu transition="slide-y-transition" bottom offset-y open-on-hover min-width="130px" attach="#ordersAr">
                                 <template v-slot:activator="{ on, attrs }">
@@ -149,12 +146,9 @@
                                 </v-expansion-panel>
                             </v-expansion-panels>
                         </v-list-item>
-                        <v-list-item class="mx-3 px-0">
+                        <!-- <v-list-item class="mx-3 px-0">
                             <router-link class="title text-decoration-none grey--text text--darken-4" to="/shop">المتجر</router-link>
-                        </v-list-item>
-                        <v-list-item class="mx-3 px-0">
-                            <router-link class="title text-decoration-none grey--text text--darken-4" to="/men">الأنشطة والمجالات</router-link>
-                        </v-list-item>
+                        </v-list-item> -->
                         <v-list-item class="mx-3 px-0">
                             <v-expansion-panels>
                                 <v-expansion-panel>
@@ -224,7 +218,7 @@ nav.ar {
     .v-list {
         .v-list-item{
             min-width: fit-content !important;
-            &:hover > a {
+            &:hover > a, .router-link-exact-active {
                 color: #0057a8 !important;
             }
             .v-expansion-panel {

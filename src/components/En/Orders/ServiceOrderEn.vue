@@ -49,10 +49,8 @@
                     </v-col>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.location"
-                            :rules="rules.location"
-                            label="Location through Whatsapp"
-                            required
+                            v-model="serviceForm.responsiblePerson"
+                            label="Client Responsible Person"
                             outlined
                             dense
                         ></v-text-field>
@@ -106,7 +104,7 @@ export default {
                 name: "",
                 email: "",
                 address: "",
-                location: "",
+                responsiblePerson: "",
                 phone: "",
                 system: "",
                 date: "",
@@ -122,9 +120,6 @@ export default {
                 ],
                 address: [
                     v => !!v || 'Address is required',
-                ],
-                location: [
-                    v => !!v || 'Location is required',
                 ],
                 phone: [
                     v => !!v || 'Phone is required',

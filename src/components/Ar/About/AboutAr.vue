@@ -1,16 +1,20 @@
 <template>
     <div class="aboutAr">
         <div class="subheader d-flex align-end">
-            <v-overlay :absolute="true" :value="true" :opacity="0.7" :z-index="0"></v-overlay>
-            <v-container style="z-index: 1">
-                <div class="content white--text text-center">
-                    <p class="text-uppercase display-1 font-weight-bold">عنـــا</p>
-                    <p class="text-subtitle-2 text-sm-h6">"احد الشركات الرائدة فى مجال الأنظمة الأمنية و التشطيبات و أنظمة مكافحة الحرائق"</p>
+            <v-container fluid class="px-0">
+                <carousel dir="ltr" :freeDrag="false" :pullDrag="false" :touchDrag="false" :mouseDrag="false" :autoplay="true" :nav="false" :responsive="{ 0:{items:1} }" :dots="false">
+                    <v-img width="100%" height="300px" src="../../../assets/about/service1.jpg"></v-img>
+                    <v-img width="100%" height="300px" src="../../../assets/about/service2.jpeg"></v-img>
+                    <v-img width="100%" height="300px" src="../../../assets/about/service3.jpeg"></v-img>
+                </carousel>
+                <div class="header-content white--text text-center">
+                    <p class="text-uppercase text-h4 text-sm-h3 font-weight-bold">عننـــا</p>
+                    <p class="text-subtitle-1 text-sm-h5 font-weight-bold mb-0">"احد الشركات الرائدة فى مجال الأنظمة الأمنية و التشطيبات و أنظمة مكافحة الحرائق"</p>
                 </div>
             </v-container>
         </div>
         <v-container>
-            <div class="about-section-1 py-12">
+            <!-- <div class="about-section-1 py-12">
                 <v-row class="align-center">
                     <v-col cols="12" md="6" class="mx-auto pa-6">
                         <v-img src="../../../assets/about_1.jpg" contain></v-img>
@@ -82,23 +86,48 @@
                         </div>
                     </div>
                 </v-col>
-            </v-row>
+            </v-row> -->
+            <div class="certificates my-7">
+                <p class="headline main-title font-weight-medium mx-auto mb-5 white--text text-center py-3 px-5">شهــاداتـنــــا</p>
+                <div class="certificates-wrapper d-flex flex-wrap py-5 justify-center align-center">
+                    <img src="../../../assets/certificates/certificate1.jpg">
+                    <img src="../../../assets/certificates/certificate2.jpg">
+                    <img src="../../../assets/certificates/certificate3.jpg">
+                    <img src="../../../assets/certificates/certificate4.jpg">
+                    <img src="../../../assets/certificates/certificate5.jpg">
+                    <img src="../../../assets/certificates/certificate6.jpg">
+                </div>
+            </div>
+            <div class="partners my-7">
+                <p class="headline main-title font-weight-medium mx-auto mb-5 white--text text-center py-3 px-5">شركات تم العمل معها</p>
+                <div class="partners-wrapper d-flex flex-wrap py-5 justify-center align-center">
+                    <img src="../../../assets/partners/الــــنـــادى الأهـلــى.jpg">
+                    <img src="../../../assets/partners/AL AZHAR university.jpg">
+                    <img src="../../../assets/partners/dentons.png">
+                    <img src="../../../assets/partners/اكاديمية البحث العلمى.jpg">
+                    <img src="../../../assets/partners/الشركة المصرية لنفل الدم.jpg">
+                    <img src="../../../assets/partners/الشركة المصريه الفرعونيه للتنميه السياحية.jpg">
+                    <img src="../../../assets/partners/المجمـــــوعة المتحــــدة لوســــاطة التـــــأمين.png">
+                    <img src="../../../assets/partners/المركــــــز الدولــــى التجــــارى للتوريــــدات.png">
+                </div>
+            </div>
         </v-container>
 
     </div>
 </template>
 
 <script>
+import carousel from 'vue-owl-carousel'
 export default {
     name: "About",
+    components: { 
+        carousel,
+    },
 }
 </script>
 
 <style>
 .aboutAr .subheader {
-    background:url('../../../assets/subheader.jpg') no-repeat center center;
-    background-size: cover;
-    height: 200px;
     position: relative;
 }
 
@@ -112,5 +141,46 @@ export default {
 }
 .aboutAr p.subtitle-2, .aboutAr p.title {
     letter-spacing: 0 !important;
+}
+
+.aboutAr .owl-stage {
+    position:relative;
+}
+
+.aboutAr .owl-stage::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.aboutAr .header-content {
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+}
+
+.aboutAr .partners-wrapper, .aboutAr .certificates-wrapper {
+    gap: 30px
+}
+
+.aboutAr .partners-wrapper img , .aboutAr .certificates-wrapper img {
+    max-width: 280px;
+    object-fit: contain;
+}
+
+.main-title {
+    background-color: #0057A8;
+    border-radius: 50px;
+    width: fit-content;
 }
 </style>

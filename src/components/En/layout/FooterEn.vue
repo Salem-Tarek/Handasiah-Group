@@ -9,22 +9,22 @@
                     </v-col>
                     <v-col md="4" cols="12" class="d-flex justify-md-center justify-start">
                         <v-list dense class="transparent">
-                            <v-list-item>
+                            <v-list-item class="px-0">
                                 <v-list-item-title class="font-weight-bold white--text title">
                                     Discover
                                 </v-list-item-title>
                             </v-list-item>
-                            <v-list-item>
-                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/">About Us</router-link>
+                            <v-list-item class="px-0 my-3">
+                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/">Home</router-link>
                             </v-list-item>
-                            <v-list-item>
-                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/">Quotation</router-link>
+                            <v-list-item class="px-0 my-3">
+                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/about">About Us</router-link>
                             </v-list-item>
-                            <v-list-item>
-                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/">Contacts</router-link>
-                            </v-list-item>
-                            <v-list-item>
-                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/">Shop</router-link>
+                            <!-- <v-list-item class="px-0 my-3">
+                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/shop">Shop</router-link>
+                            </v-list-item> -->
+                            <v-list-item class="px-0 my-3">
+                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/contact">Contact Us</router-link>
                             </v-list-item>
                         </v-list>
                     </v-col>
@@ -53,28 +53,28 @@
                 <v-list class="d-flex align-center transparent">
                     <v-list-item class="px-2">
                         <v-btn fab small depressed>
-                            <a class="text-decoration-none" href="https://www.facebook.com/">
+                            <a class="text-decoration-none" target="_blank" href="https://www.facebook.com/">
                                 <v-icon>mdi-facebook</v-icon>
                             </a>
                         </v-btn>
                     </v-list-item>
                     <v-list-item class="px-2">
                         <v-btn fab small depressed>
-                            <a class="text-decoration-none" href="mailto:handasiahgroup@gmail.com">
+                            <a class="text-decoration-none" target="_blank" href="mailto:handasiahgroup@gmail.com">
                                 <v-icon>mdi-email</v-icon>
                             </a>
                         </v-btn>
                     </v-list-item>
                     <v-list-item class="px-2">
                         <v-btn fab small depressed>
-                            <a class="text-decoration-none" href="https://wa.me/201552021453">
+                            <a class="text-decoration-none" target="_blank" href="https://wa.me/201552021453">
                                 <v-icon>mdi-whatsapp</v-icon>
                             </a>
                         </v-btn>
                     </v-list-item>
                     <v-list-item class="px-2">
                         <v-btn fab small depressed>
-                            <a class="text-decoration-none" href="https://www.linkedin.com/feed/">
+                            <a class="text-decoration-none" target="_blank" href="https://www.linkedin.com/feed/">
                                 <v-icon>mdi-linkedin</v-icon>
                             </a>
                         </v-btn>

@@ -1,12 +1,12 @@
 <template>
-    <nav class="en">
+    <nav class="en grey lighten-4">
         <v-container class="py-1 px-0">
             <v-app-bar flat style="position: relative; z-index: 3">
                 <div class="d-flex align-center justify-space-between" style="width: 100%">
                     <router-link to="/">
                         <v-img style="cursor: pointer" contain height="100px" width="100px" src="../../../assets/logo.png"></v-img>
                     </router-link>
-                    <v-list class="d-none d-md-flex font-weight-bold">
+                    <v-list class="d-none d-md-flex font-weight-bold grey lighten-4">
                         <v-list-item class="mx-3 px-0 text-uppercase subtitle-2 font-weight-bold">
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/">Home</router-link>
                         </v-list-item>
@@ -52,12 +52,9 @@
                                 </v-list>
                             </v-menu>
                         </v-list-item>
-                        <v-list-item class="mr-3 px-0 text-uppercase subtitle-2 font-weight-bold">
+                        <!-- <v-list-item class="mr-3 px-0 text-uppercase subtitle-2 font-weight-bold">
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/shop">Shop</router-link>
-                        </v-list-item>
-                        <v-list-item class="mx-3 px-0 text-uppercase subtitle-2 font-weight-bold">
-                            <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Activities and Fields</router-link>
-                        </v-list-item>
+                        </v-list-item> -->
                         <v-list-item class="mx-3 px-0 text-uppercase subtitle-2 font-weight-bold" id="ordersEn">
                             <v-menu transition="slide-y-transition" bottom offset-y open-on-hover min-width="160px" attach="#ordersEn">
                                 <template v-slot:activator="{ on, attrs }">
@@ -149,12 +146,9 @@
                                 </v-expansion-panel>
                             </v-expansion-panels>
                         </v-list-item>
-                        <v-list-item class="mx-3 px-0 text-uppercase">
+                        <!-- <v-list-item class="mx-3 px-0 text-uppercase">
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/shop">Shop</router-link>
-                        </v-list-item>
-                        <v-list-item class="mx-3 px-0 text-uppercase">
-                            <router-link class="text-decoration-none grey--text text--darken-4" to="/women">Activities and Fields</router-link>
-                        </v-list-item>
+                        </v-list-item> -->
                         <v-list-item class="mx-3 px-0">
                             <v-expansion-panels>
                                 <v-expansion-panel>
@@ -224,7 +218,7 @@ nav.en {
     .v-list {
         .v-list-item{
             min-width: fit-content !important;
-            &:hover > a {
+            &:hover > a, .router-link-exact-active {
                 color: #0057a8 !important;
             }
             .v-expansion-panel {

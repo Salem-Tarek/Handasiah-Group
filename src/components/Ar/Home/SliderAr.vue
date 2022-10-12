@@ -7,7 +7,7 @@
                     v-for="(slider,i) in slides"
                     :key="i"
                     :src="slider.src"
-                    reverse-transition="scroll-x-transition"
+                    transition="scroll-x-transition"
                   ></v-carousel-item>
                 </v-carousel>
             </div>

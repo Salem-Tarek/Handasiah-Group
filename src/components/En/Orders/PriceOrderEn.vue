@@ -70,9 +70,7 @@
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
                             v-model="serviceForm.responsiblePerson"
-                            :rules="rules.responsiblePerson"
                             label="Client Responsible Person"
-                            required
                             outlined
                             dense
                         ></v-text-field>

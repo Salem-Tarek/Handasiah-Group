@@ -18,7 +18,7 @@
                         <v-text-field
                             v-model="serviceForm.email"
                             :rules="rules.email"
-                            label="الإيميل"
+                            label="البريد الالكترونى"
                             type="email"
                             required
                             outlined
@@ -49,9 +49,8 @@
                     </v-col>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.location"
-                            :rules="rules.location"
-                            label="العنوان عن طريق الواتس اب"
+                            v-model="serviceForm.responsiblePerson"
+                            label="الشخص المسئول لدى العميل"
                             required
                             outlined
                             dense
@@ -80,7 +79,6 @@
                     <v-col cols="12" md="12" class="py-0">
                         <v-textarea
                             v-model="serviceForm.notes"
-                            :rules="rules.notes"
                             label="ملاحظات من العميل"
                             required
                             outlined
@@ -106,7 +104,7 @@ export default {
                 name: "",
                 email: "",
                 address: "",
-                location: "",
+                responsiblePerson: "",
                 phone: "",
                 system: "",
                 date: "",
@@ -117,14 +115,11 @@ export default {
                     v => !!v || 'الاسم مطلوب',
                 ],
                 email: [
-                    v => !!v || 'البريد الاكتروني مطلوب',
-                    v => /.+@.+\..+/.test(v) || 'يجب ان يكون البريد الاكتروني صحيح',
+                    v => !!v || 'البريد الالكتروني مطلوب',
+                    v => /.+@.+\..+/.test(v) || 'يجب ان يكون البريد الالكتروني صحيح',
                 ],
                 address: [
                     v => !!v || 'العنوان مطلوب',
-                ],
-                location: [
-                    v => !!v || 'العنوان عن طريق الواتس اب مطلوب',
                 ],
                 phone: [
                     v => !!v || 'رقم الهاتف مطلوب',

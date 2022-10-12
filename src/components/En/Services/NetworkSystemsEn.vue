@@ -12,6 +12,8 @@
             <h1 class="text-uppercase main-text-color mb-5">Network Systems</h1>
             <p class="subtitle-1">One of the leading companies in the field of security systems and has carried out many projects with major companies in the private sector, the public sector, and government agencies and agencies with the highest efficiency and effectiveness.</p>    
             <p class="subtitle-1">The engineering company is distinguished in the speed of responding to sudden malfunctions through a technical work team at the highest level.. by receiving information about sudden malfunctions and moving to the customer within 24 hours to address those malfunctions.</p>    
+            <h3 class="mt-7 mb-3 main-text-color">Company Privileges</h3>
+            <p class="subtitle-1">The engineering company is distinguished in the speed of responding to sudden malfunctions through a technical work team at the highest level.. by receiving information about sudden malfunctions and moving to the customer within 24 hours to address those malfunctions.</p>    
         </v-container>
     </div>
 </template>

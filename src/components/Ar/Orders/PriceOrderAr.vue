@@ -18,8 +18,7 @@
                         <v-text-field
                             v-model="serviceForm.email"
                             :rules="rules.email"
-                            label="الإيميل"
-                            type="email"
+                            label="البريد الالكترونى"
                             required
                             outlined
                             dense
@@ -70,7 +69,6 @@
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
                             v-model="serviceForm.responsiblePerson"
-                            :rules="rules.responsiblePerson"
                             label="الشخص المسئول لدى العميل"
                             required
                             outlined
@@ -117,8 +115,8 @@ export default {
                     v => !!v || 'الاسم مطلوب',
                 ],
                 email: [
-                    v => !!v || 'البريد الاكتروني مطلوب',
-                    v => /.+@.+\..+/.test(v) || 'يجب ان يكون البريد الاكتروني صحيح',
+                    v => !!v || 'البريد الالكتروني مطلوب',
+                    v => /.+@.+\..+/.test(v) || 'يجب ان يكون البريد الالكتروني صحيح',
                 ],
                 address: [
                     v => !!v || 'العنوان مطلوب',
