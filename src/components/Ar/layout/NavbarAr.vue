@@ -83,8 +83,12 @@
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/contact">إتصل بنا</router-link>
                         </v-list-item>
                         <v-list-item class="px-0" style="max-width: fit-content">
-                            <v-img v-if="getLang === 'Ar'" style="cursor: pointer" contain max-height="25px" width="50px" src="../../../assets/flags/america.svg" @click="toggleLang"></v-img>
-                            <v-img v-else style="cursor: pointer" contain max-height="25px" width="50px" src="../../../assets/flags/egypt.svg" @click="toggleLang"></v-img>
+                            <v-btn class="px-0 text-uppercase" small dark v-if="getLang === 'En'" depressed @click="toggleLang">
+                                <h1 class="mb-0">Ar</h1>
+                            </v-btn>
+                            <v-btn class="px-0 text-uppercase" small dark v-else depressed @click="toggleLang">
+                                <h1 class="mb-0">En</h1>
+                            </v-btn>
                         </v-list-item>
                     </v-list>
                 </div>
@@ -93,7 +97,7 @@
                 </v-app-bar-nav-icon>
             </v-app-bar>
             <!-- Navbar Navigation Drawer -->
-            <v-navigation-drawer width="250px" v-model="showDrawer" hide-overlay fixed stateless right>
+            <v-navigation-drawer width="250px" v-model="showDrawer" hide-overlay fixed right>
                 <router-link to="/" class="d-flex justify-center">
                     <v-img class="d-flex justify-center" style="cursor: pointer" contain height="100px" width="100px" src="../../../assets/logo.png"></v-img>
                 </router-link>
@@ -178,8 +182,12 @@
                             <router-link class="title text-decoration-none grey--text text--darken-4" to="/contact">إتصل بنا</router-link>
                         </v-list-item>
                         <v-list-item style="max-width: fit-content">
-                            <v-img v-if="getLang === 'Ar'" style="cursor: pointer" contain max-height="25px" width="50px" src="../../../assets/flags/america.svg" @click="toggleLang"></v-img>
-                            <v-img v-else style="cursor: pointer" contain max-height="25px" width="50px" src="../../../assets/flags/egypt.svg" @click="toggleLang"></v-img>
+                            <v-btn class="px-0 text-uppercase" small dark v-if="getLang === 'En'" depressed @click="toggleLang">
+                                <h1 class="mb-0">Ar</h1>
+                            </v-btn>
+                            <v-btn class="px-0 text-uppercase" small dark v-else depressed @click="toggleLang">
+                                <h1 class="mb-0">En</h1>
+                            </v-btn>
                         </v-list-item>
                     </v-list-item-group>
                 </v-list>

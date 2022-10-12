@@ -5,7 +5,7 @@
                 <v-row class="align-center">
                     <v-col md="4" cols="12">
                         <v-img contain height="130px" width="130px" src="../../../assets/logo.png"></v-img>
-                        <p class="grey--text subtitle-1 font-weight-bold">Elhandasiah Group was established to be one of the distinguished companies in the work of networks, security systems and contracting.</p>
+                        <p class="grey--text subtitle-1 font-weight-bold text-justify">Elhandasiah Group was established to be one of the distinguished companies in the work of networks, security systems and contracting.</p>
                     </v-col>
                     <v-col md="4" cols="12" class="d-flex justify-md-center justify-start">
                         <v-list dense class="transparent">

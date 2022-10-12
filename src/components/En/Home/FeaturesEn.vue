@@ -14,18 +14,9 @@
                 <v-col md="6" cols="12" class="d-flex justify-center align-center">
                     <v-icon x-large left class="main-text-color">mdi-clock-outline</v-icon>
                     <div class="d-flex justify-center flex-column">
-                        <p class="mb-0 title font-weight-bold">Online 24 hours</p>
+                        <p class="mb-0 title font-weight-bold">Reply within 24 hours</p>
                         <p class="mb-0">
                             The engineering company is available 24 hours a day by receiving your calls and moving to the customer within 24 hours to address the malfunctions.
-                        </p>
-                    </div>
-                </v-col>
-                <v-col md="6" cols="12" class="d-flex justify-center align-center">
-                    <v-icon x-large left class="main-text-color">mdi-video</v-icon>
-                    <div class="d-flex justify-center flex-column">
-                        <p class="mb-0 title font-weight-bold">Surveillance Cameras</p>
-                        <p class="mb-0">
-                            The engineering company is distinguished by providing the best surveillance camera systems to secure the home or workplace, and you can also follow these cameras from where you are via the mobile.
                         </p>
                     </div>
                 </v-col>

@@ -5,8 +5,8 @@
                 <v-row class="align-center">
                     <v-col md="4" cols="12">
                         <v-img contain height="130px" width="130px" src="../../../assets/logo.png"></v-img>
-                        <p class="grey--text subtitle-1 font-weight-bold">تاسست الهندسية جروب لتكون واحدة من الشركات المتميزة فى اعمال الشبكات والانظمة الامنية والمقاولات
-العامة وتعتبر الشركة من احدى الشركات التى ساهمت فى العديد من المشروعات القومية والخاصة.</p>
+                        <p class="grey--text subtitle-1 font-weight-bold text-justify" style="letter-spacing: 0 !important">تاسست الهندسية جروب لتكون واحدة من الشركات المتميزة فى اعمال الشبكات والانظمة الامنية والمقاولات
+                        العامة وتعتبر الشركة من احدى الشركات التى ساهمت فى العديد من المشروعات القومية والخاصة.</p>
                     </v-col>
                     <v-col md="4" cols="12" class="d-flex justify-md-center justify-start">
                         <v-list dense class="transparent">

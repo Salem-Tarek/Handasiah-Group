@@ -2,7 +2,7 @@
     <div class="home">
         <template v-if="getLang === 'En'">
             <SliderEn />
-            <UnderSliderEn />
+            <!-- <UnderSliderEn /> -->
             <FeaturesEn />
             <!-- <ServicesEn /> -->
             <PartnersEn />
@@ -10,7 +10,7 @@
         </template>
         <template v-else>
             <SliderAr />
-            <UnderSliderAr />
+            <!-- <UnderSliderAr /> -->
             <FeaturesAr />
             <!-- <ServicesAr /> -->
             <PartnersAr />
@@ -24,7 +24,7 @@ import { mapGetters } from 'vuex'
 
 // English Components
 import SliderEn from '../components/En/Home/SliderEn.vue'
-import UnderSliderEn from '../components/En/Home/UnderSliderEn.vue'
+// import UnderSliderEn from '../components/En/Home/UnderSliderEn.vue'
 import FeaturesEn from '../components/En/Home/FeaturesEn.vue'
 // import ServicesEn from '../components/En/Home/ServicesEn.vue'
 import PartnersEn from '../components/En/Home/PartnersEn.vue'
@@ -32,7 +32,7 @@ import VideoDemoEn from '../components/En/Home/VideoDemoEn.vue'
 
 // Arabic Components
 import SliderAr from '../components/Ar/Home/SliderAr.vue'
-import UnderSliderAr from '../components/Ar/Home/UnderSliderAr.vue'
+// import UnderSliderAr from '../components/Ar/Home/UnderSliderAr.vue'
 import FeaturesAr from '../components/Ar/Home/FeaturesAr.vue'
 // import ServicesAr from '../components/Ar/Home/ServicesAr.vue'
 import PartnersAr from '../components/Ar/Home/PartnersAr.vue'
@@ -42,14 +42,14 @@ export default {
     name: "HomeEn",
     components:{
         SliderEn,
-        UnderSliderEn,
+        // UnderSliderEn,
         FeaturesEn,
         // ServicesEn,
         PartnersEn,
         VideoDemoEn,
 
         SliderAr,
-        UnderSliderAr,
+        // UnderSliderAr,
         FeaturesAr,
         // ServicesAr,
         PartnersAr,

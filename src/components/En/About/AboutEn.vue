@@ -97,7 +97,6 @@
                     <img src="../../../assets/partners/dentons.png">
                     <img src="../../../assets/partners/اكاديمية البحث العلمى.jpg">
                     <img src="../../../assets/partners/الشركة المصرية لنفل الدم.jpg">
-                    <img src="../../../assets/partners/الشركة المصريه الفرعونيه للتنميه السياحية.jpg">
                     <img src="../../../assets/partners/المجمـــــوعة المتحــــدة لوســــاطة التـــــأمين.png">
                     <img src="../../../assets/partners/المركــــــز الدولــــى التجــــارى للتوريــــدات.png">
                 </div>

@@ -14,18 +14,9 @@
                 <v-col md="6" cols="12" class="d-flex justify-center align-center">
                     <v-icon x-large right class="main-text-color">mdi-clock-outline</v-icon>
                     <div class="d-flex justify-center flex-column">
-                        <p class="mb-0 title font-weight-bold">متواجدين على مدار 24 ساعة</p>
+                        <p class="mb-0 title font-weight-bold">الرد خلال 24 ساعة</p>
                         <p class="mb-0 subtitle-1 grey--text text--darken-2">
-                            تمتاز الشركة الهندسية بالتواجد على مدار 24 ساعة وذلك من خلال استقبال المكالمات الخاصة بكم والتحرك نحو العميل خلال 24 ساعة لمعالجة الأعطال .
-                        </p>
-                    </div>
-                </v-col>
-                <v-col md="6" cols="12" class="d-flex justify-center align-center">
-                    <v-icon x-large right class="main-text-color">mdi-video</v-icon>
-                    <div class="d-flex justify-center flex-column">
-                        <p class="mb-0 title font-weight-bold">كاميرات مراقبة</p>
-                        <p class="mb-0 subtitle-1 grey--text text--darken-2">
-                            تمتاز الشركة الهندسية بتقديم أفضل أنظمة لكاميرات المراقبة لتأمين المنزل أو أماكن العمل و يمكنك أيضا متابعة هذا الكاميرات من مكان تواجدك عن طريق الموبايل.
+                            تمتاز الشركة الهندسية بتلبية الأعطال و الرد على جميع الطلبات سواء عرض سعر أو إجراء معاينة أو خدمة صيانة خلال 24 ساعة.
                         </p>
                     </div>
                 </v-col>
