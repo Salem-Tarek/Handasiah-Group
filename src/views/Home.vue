@@ -27,6 +27,7 @@ import InfoEn from '../components/En/Home/InfoEn.vue'
 import PartnersEn from '../components/En/Home/PartnersEn.vue'
 import VideoDemoEn from '../components/En/Home/VideoDemoEn.vue'
 
+
 // Arabic Components
 import SliderAr from '../components/Ar/Home/SliderAr.vue'
 import FeaturesAr from '../components/Ar/Home/FeaturesAr.vue'

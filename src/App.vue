@@ -22,6 +22,7 @@
     </v-main>
     <FooterEn v-if="getLang === 'En'" />
     <FooterAr v-else />
+    <!-- <ChatEn /> -->
   </v-app>
 </template>
 
@@ -30,6 +31,8 @@ import NavbarEn from './components/En/layout/NavbarEn.vue'
 import FooterEn from './components/En/layout/FooterEn.vue'
 import NavbarAr from './components/Ar/layout/NavbarAr.vue'
 import FooterAr from './components/Ar/layout/FooterAr.vue'
+// import ChatEn from './components/En/layout/ChatEn.vue'
+
 import { mapGetters } from 'vuex'
 
 export default {
@@ -46,6 +49,7 @@ export default {
     NavbarAr,
     FooterEn,
     FooterAr,
+    // ChatEn,
   },
   computed:{
     ...mapGetters(['getLang']),

@@ -53,7 +53,7 @@
                 <v-list class="d-flex align-center transparent">
                     <v-list-item class="px-2">
                         <v-btn fab small depressed>
-                            <a class="text-decoration-none" target="_blank" href="https://www.facebook.com/">
+                            <a class="text-decoration-none" target="_blank" href="https://www.facebook.com/Handasiah.Group.GH">
                                 <v-icon>mdi-facebook</v-icon>
                             </a>
                         </v-btn>
@@ -74,7 +74,7 @@
                     </v-list-item>
                     <v-list-item class="px-2">
                         <v-btn fab small depressed>
-                            <a class="text-decoration-none" target="_blank" href="https://www.linkedin.com/feed/">
+                            <a class="text-decoration-none" target="_blank" href="https://www.linkedin.com/in/handsiah-group-71066a253/">
                                 <v-icon>mdi-linkedin</v-icon>
                             </a>
                         </v-btn>
