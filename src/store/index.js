@@ -11,17 +11,13 @@ export default new Vuex.Store({
     getLang: state => state.lang,
   },
   mutations: {
-    toggleLang: state => {
-      if(state.lang === "En"){
-        state.lang = "Ar"
-      }else{
-        state.lang = "En"
-      }
+    toggleLang: (state, lang) => {
+      state.lang = lang;
     }
   },
   actions: {
-    toggleLang({commit}){
-      commit('toggleLang')
+    toggleLang({commit}, lang){
+      commit('toggleLang', lang)
     }
   },
   modules: {},

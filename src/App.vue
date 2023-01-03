@@ -32,8 +32,9 @@ import FooterEn from './components/En/layout/FooterEn.vue'
 import NavbarAr from './components/Ar/layout/NavbarAr.vue'
 import FooterAr from './components/Ar/layout/FooterAr.vue'
 // import ChatEn from './components/En/layout/ChatEn.vue'
+import axios from 'axios'
 
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: "App",
@@ -55,6 +56,7 @@ export default {
     ...mapGetters(['getLang']),
   },
   methods:{
+    ...mapActions(['toggleLang']),
     toggleDemoOverlay(val){
       this.overlayShowed= val;
     }
@@ -70,6 +72,17 @@ export default {
       }
       this.showSnackbar = true;
     }
+  },
+  async mounted(){
+    let currentLang = '';
+    if(localStorage.getItem('currentLang')){
+      currentLang = localStorage.getItem('currentLang');
+    }else{
+      const res = await axios.get('/frontend/getLanguage');
+      currentLang = res.data.data.Language[0].toUpperCase() + res.data.data.Language.slice(1);
+      localStorage.setItem('currentLang', currentLang)
+    }
+    this.toggleLang(currentLang)
   }
 };
 </script>

@@ -1,18 +1,18 @@
 <template>
     <div class="home">
         <template v-if="getLang === 'En'">
-            <SliderEn />
-            <FeaturesEn />
-            <InfoEn />
-            <PartnersEn />
-            <VideoDemoEn @overlaytoggled="toggleDemoOverlay" />
+            <SliderEn :sliders="slides" />
+            <FeaturesEn :services="services" />
+            <InfoEn :content="infoContent" />
+            <PartnersEn :companies="workedCompanies" />
+            <VideoDemoEn :videoData="videoData" @overlaytoggled="toggleDemoOverlay" />
         </template>
         <template v-else>
-            <SliderAr />
-            <FeaturesAr />
-            <InfoAr />
-            <PartnersAr />
-            <VideoDemoAr @overlaytoggled="toggleDemoOverlay" />
+            <SliderAr :sliders="slides" />
+            <FeaturesAr :services="services" />
+            <InfoAr :content="infoContent" />
+            <PartnersAr :companies="workedCompanies" />
+            <VideoDemoAr :videoData="videoData" @overlaytoggled="toggleDemoOverlay" />
         </template>
     </div>
 </template>
@@ -35,29 +35,68 @@ import InfoAr from '../components/Ar/Home/InfoAr.vue'
 import PartnersAr from '../components/Ar/Home/PartnersAr.vue'
 import VideoDemoAr from '../components/Ar/Home/VideoDemoAr.vue'
 
-export default {
-    name: "HomeEn",
-    components:{
-        SliderEn,
-        FeaturesEn,
-        InfoEn,
-        PartnersEn,
-        VideoDemoEn,
+import axios from 'axios'
 
-        SliderAr,
-        FeaturesAr,
-        InfoAr,
-        PartnersAr,
-        VideoDemoAr,
-    },
-    computed:{
-        ...mapGetters(['getLang'])
-    },
-    methods:{
-        toggleDemoOverlay(val){
-            this.$emit('overlaytoggled', val)
-        }
+export default {
+  name: "HomeEn",
+  data(){
+    return {
+      slides: [],
+      infoContent: {},
+      services: [],
+      workedCompanies: [],
+      videoData: {},
     }
+  },
+  components:{
+    SliderEn,
+    FeaturesEn,
+    InfoEn,
+    PartnersEn,
+    VideoDemoEn,
+
+    SliderAr,
+    FeaturesAr,
+    InfoAr,
+    PartnersAr,
+    VideoDemoAr,
+  },
+  computed:{
+    ...mapGetters(['getLang'])
+  },
+  methods:{
+    toggleDemoOverlay(val){
+      this.$emit('overlaytoggled', val)
+    },
+    async getHomeData(){
+      const res = await axios.get('/frontend/homePage');
+      console.log(res.data.data);
+    
+      let { slider, aboutSomeWords, mission, services, workedCompanies, video } = res.data.data;
+      this.slides = slider;
+
+      this.infoContent = {
+        aboutSomeWords,
+        mission
+      }
+
+      this.workedCompanies = workedCompanies;
+
+      console.log(workedCompanies);
+
+      this.services = services;
+
+      this.videoData = video;
+    }
+  },
+  watch: {
+    getLang(){
+      this.getHomeData();
+    }
+  },
+  mounted(){
+    this.getHomeData();
+  }
 }
 </script>
 

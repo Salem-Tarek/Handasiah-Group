@@ -4,9 +4,10 @@
             <div class="d-flex align-center justify-space-between" style="height: 100%">
                 <v-carousel hide-delimiters show-arrows-on-hover height="100%">
                   <v-carousel-item
-                    v-for="(slider,i) in slides"
+                    contain
+                    v-for="(slider,i) in sliders"
                     :key="i"
-                    :src="slider.src"
+                    :src="slider.image"
                     transition="scroll-x-transition"
                   ></v-carousel-item>
                 </v-carousel>
@@ -18,19 +19,10 @@
 <script>
 export default {
   name: "Slider",
-  data(){
-    return {
-      slides:[
-        {
-          src: require('../../../assets/slider/slide_1.jpg'),
-        },
-        {
-          src: require('../../../assets/slider/slide_2.jpg'),
-        },
-        {
-          src: require('../../../assets/slider/slide_3.jpg'),
-        },
-      ]
+  props: {
+    sliders: {
+      type: Array,
+      required: true,
     }
   },
   methods: {

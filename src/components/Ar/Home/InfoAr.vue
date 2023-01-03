@@ -1,34 +1,31 @@
 <template>
-    <div class="infoAr py-5 my-3 grey lighten-2">
-        <v-container>
-            <v-row>
-                <v-col cols="12">
-                    <p class="mb-0 title font-weight-bold">بعض الكلمات عنا</p>
-                    <p class="subtitle-2 grey--text text--darken-3">
-                        احد الشركات الرائدة فى مجال الأنظمة الأمنية وقد قامت بالكثير من المشاريع بكبرى شركات القطاع الخاص والقطاع العام والهيئات والجهات الحكومية بأعلى كفاءة وفاعلية.
-                    </p>
-                    <p class="subtitle-2 grey--text text--darken-3">
-                        تمتاز الشركة الهندسية فى سرعة تلبية الأعطال المفاجئة وذلك من خلال فريق عمل فنى على أعلى مستوى..وذلك من خلال استقبال المعلومات الخاصة بالأعطال المفاجئة والتحرك نحو العميل خلال 24 ساعة لمعالجة تلك الأعطال .
-                    </p>
-                    <p class="subtitle-2 grey--text text--darken-3">
-                        تمتاز الشركة الهندسية بتقديم خدمة ما بعد البيع وهى الفترة خلال الضمان من خلال عمل تقارير الصيانة الدورية والمتابعة الجيدة للأنظمة المختلفة وتفعيل عقود صيانة سنوية بعد انتهاء فترة الضمان لمتابعة التشغيل للأنظمة المختلفة .
-                    </p>
-                    <p class="mb-0 title font-weight-bold">المهمة</p>
-                    <p class="subtitle-2 grey--text text--darken-3">
-                       تمتاز الشركة الهندسية بالتنوع فى تقديم مجالات الأنظمة الأمنية مع التفوق فى اداء كل نظام وذلك من خلال التعدد فى منظومة القسم الفنى المختص لكل نظام .
-                    </p>
-                    <p class="subtitle-2 grey--text text--darken-3">
-                        تمتاز الشركة الهندسية بوجود فريق مدرب على أعلى مستوى خلال أعمال التركيبات والصيانة الدورية ويمتاز هذا الفريق بالنظام والدقة من عمل تقارير الدورية الشهرية .
-                    </p>
-                </v-col>
-            </v-row>
-        </v-container>
-    </div>
+  <div class="infoAr py-5 my-3 grey lighten-2">
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <p class="mb-0 title font-weight-bold">بعض الكلمات عنا</p>
+          <p class="subtitle-2 grey--text text--darken-3">
+            {{ content.aboutSomeWords.description }}
+          </p>
+          <p class="mb-0 title font-weight-bold">المهمة</p>
+          <p class="subtitle-2 grey--text text--darken-3">
+            {{ content.mission.description }}
+          </p>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "InfoAr",
+  name: "InfoAr",
+  props: {
+    content: {
+      type: Object,
+      required: true,
+    }
+  },
 }
 </script>
 

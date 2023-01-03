@@ -83,10 +83,10 @@
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/contact">Contact Us</router-link>
                         </v-list-item>
                         <v-list-item class="px-0" style="max-width: fit-content">
-                            <v-btn class="px-0 text-uppercase" small dark v-if="getLang === 'En'" depressed @click="toggleLang">
+                            <v-btn class="px-0 text-uppercase" small dark v-if="getLang === 'En'" depressed @click="toggleLang('Ar')">
                                 <h1 class="mb-0">Ar</h1>
                             </v-btn>
-                            <v-btn class="px-0 text-uppercase" small dark v-else depressed @click="toggleLang">
+                            <v-btn class="px-0 text-uppercase" small dark v-else depressed @click="toggleLang('En')">
                                 <h1 class="mb-0">En</h1>
                             </v-btn>
                         </v-list-item>
@@ -182,10 +182,10 @@
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/contact">Contact Us</router-link>
                         </v-list-item>
                         <v-list-item style="max-width: fit-content">
-                            <v-btn class="px-0 text-uppercase" small dark v-if="getLang === 'En'" depressed @click="toggleLang">
+                            <v-btn class="px-0 text-uppercase" small dark v-if="getLang === 'En'" depressed @click="toggleLang('Ar')">
                                 <h1 class="mb-0">Ar</h1>
                             </v-btn>
-                            <v-btn class="px-0 text-uppercase" small dark v-else depressed @click="toggleLang">
+                            <v-btn class="px-0 text-uppercase" small dark v-else depressed @click="toggleLang('En')">
                                 <h1 class="mb-0">En</h1>
                             </v-btn>
                         </v-list-item>

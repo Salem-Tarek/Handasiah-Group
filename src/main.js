@@ -4,8 +4,12 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
+import axios from 'axios'
 
 Vue.config.productionTip = false;
+
+axios.defaults.baseURL = 'https://backend.handasiah-group.com/api';
+// axios.defaults.headers.common['Authorization'] = `Bearer ${store.state.user}`;
 
 new Vue({
   router,
