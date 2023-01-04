@@ -6,7 +6,7 @@
                 <v-row>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.name"
+                            v-model="serviceForm.fullName"
                             :rules="rules.name"
                             label="Full Name"
                             required
@@ -37,7 +37,7 @@
                     </v-col>
                     <v-col cols="12" md="4" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.phone"
+                            v-model="serviceForm.whatsapp"
                             :rules="rules.phone"
                             label="Phone(Whatsapp)"
                             type="number"
@@ -49,7 +49,7 @@
                     </v-col>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.responsiblePerson"
+                            v-model="serviceForm.person"
                             label="Client Responsible Person"
                             outlined
                             dense
@@ -96,16 +96,17 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: "SurveyOrderEn",
     data(){
         return {
             serviceForm: {
-                name: "",
+                fullName: "",
                 email: "",
                 address: "",
-                responsiblePerson: "",
-                phone: "",
+                person: "",
+                whatsapp: "",
                 system: "",
                 date: "",
                 notes: "",
@@ -130,6 +131,16 @@ export default {
                 date: [
                     v => !!v || 'Date is required',
                 ],
+            }
+        }
+    },
+    methods: {
+        async submitOffer(){
+            console.log(this.serviceForm);
+            const res = await axios.post('/frontend/order', {...this.serviceForm});
+            console.log(res);
+            if(res.status){
+                alert('تم إرسال طلب المعاينة بنجاح')
             }
         }
     }

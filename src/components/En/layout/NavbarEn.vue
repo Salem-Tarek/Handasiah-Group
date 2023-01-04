@@ -19,35 +19,8 @@
                                     </span>
                                 </template>
                                 <v-list class="font-weight-bold">
-                                    <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Surveillance Systems</router-link>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Fire Alarm</router-link>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Fire Fighting</router-link>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Smart Home</router-link>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Time Attendance Devices</router-link>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Antitheft Alarm</router-link>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Network Systems</router-link>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Centrals Systems</router-link>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Air Conditioning Systems</router-link>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-page">Finishings</router-link>
+                                    <v-list-item v-for="(service, index) in services" :key="index">
+                                        <router-link class="text-decoration-none grey--text text--darken-4" :to="`/${service.title}`">{{ service.title }}</router-link>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
@@ -200,6 +173,12 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
     name: "Navbar",
+    props: {
+        services: {
+            type: Array,
+            required: true,
+        }
+    },
     data(){
         return {
             showDrawer: false
@@ -212,7 +191,7 @@ export default {
         ...mapActions(['toggleLang']),
         toggleShowDrawer(){
             this.showDrawer = !this.showDrawer; 
-        }
+        },
     },
 }
 </script>

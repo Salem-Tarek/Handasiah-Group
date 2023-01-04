@@ -9,7 +9,7 @@ import axios from 'axios'
 Vue.config.productionTip = false;
 
 axios.defaults.baseURL = 'https://backend.handasiah-group.com/api';
-// axios.defaults.headers.common['Authorization'] = `Bearer ${store.state.user}`;
+axios.defaults.headers.language = store.state.lang.toLowerCase();
 
 new Vue({
   router,

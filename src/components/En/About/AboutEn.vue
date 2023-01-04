@@ -9,7 +9,7 @@
                 </carousel>
                 <div class="header-content white--text text-center">
                     <p class="text-uppercase display-1 font-weight-bold">About Us</p>
-                    <p class="text-subtitle-2 text-sm-h6 font-weight-bold mb-0">"One of the leading companies in the field of security systems, finishes and firefighting systems"</p>
+                    <p class="text-subtitle-2 text-sm-h6 font-weight-bold mb-0"> {{ `"${aboutData.setting.title}"` }}</p>
                 </div>
             </v-container>
         </div>
@@ -81,24 +81,13 @@
             <div class="certificates my-7">
                 <p class="headline main-title font-weight-medium mx-auto mb-5 white--text text-center py-3 px-5">Our Certificates</p>
                 <div class="certificates-wrapper d-flex flex-wrap py-5 justify-center align-center">
-                    <img src="../../../assets/certificates/certificate1.jpg">
-                    <img src="../../../assets/certificates/certificate2.jpg">
-                    <img src="../../../assets/certificates/certificate3.jpg">
-                    <img src="../../../assets/certificates/certificate4.jpg">
-                    <img src="../../../assets/certificates/certificate5.jpg">
-                    <img src="../../../assets/certificates/certificate6.jpg">
+                    <img v-for="img in aboutData.certificates" :src="img.image" :key="img.id">
                 </div>
             </div>
             <div class="partners my-7">
                 <p class="headline main-title font-weight-medium mx-auto mb-5 white--text text-center py-3 px-5">Companies we have worked with</p>
                 <div class="partners-wrapper d-flex flex-wrap py-5 justify-center align-center">
-                    <img src="../../../assets/partners/الــــنـــادى الأهـلــى.jpg">
-                    <img src="../../../assets/partners/AL AZHAR university.jpg">
-                    <img src="../../../assets/partners/dentons.png">
-                    <img src="../../../assets/partners/اكاديمية البحث العلمى.jpg">
-                    <img src="../../../assets/partners/الشركة المصرية لنفل الدم.jpg">
-                    <img src="../../../assets/partners/المجمـــــوعة المتحــــدة لوســــاطة التـــــأمين.png">
-                    <img src="../../../assets/partners/المركــــــز الدولــــى التجــــارى للتوريــــدات.png">
+                    <img v-for="img in aboutData.workedCompanies" :src="img.image" :key="img.id">
                 </div>
             </div>
         </v-container>
@@ -113,6 +102,12 @@ export default {
     components: { 
         carousel,
     },
+    props: {
+        aboutData: {
+            type: Object,
+            required: true
+        }
+    }
 }
 </script>
 

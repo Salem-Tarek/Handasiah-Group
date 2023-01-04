@@ -1,22 +1,31 @@
 <template>
-    <NetworkSystemsEn v-if="getLang === 'En'" />
-    <NetworkSystemsAr v-else />
+    <ServicePage  />
+    <!-- <NetworkSystemsAr v-else /> -->
 </template>
 
 <script>
-import NetworkSystemsEn from '../components/En/Services/NetworkSystemsEn.vue'
-import NetworkSystemsAr from '../components/Ar/Services/NetworkSystemsAr.vue'
+import ServicePage from '../components/En/Services/ServicePage.vue'
+// import NetworkSystemsAr from '../components/Ar/Services/NetworkSystemsAr.vue'
 import { mapGetters } from 'vuex'
-
+import axios from 'axios'
 export default {
     name: "Service",
     computed:{
         ...mapGetters(['getLang'])
     },
     components: { 
-        NetworkSystemsEn,
-        NetworkSystemsAr
+        ServicePage,
+        // NetworkSystemsAr
     },
+    methods: {
+        async getServiceData(){
+            const res = await axios.get('/dashboard/servicesPage');
+            console.log(res);
+        }
+    },
+    mounted(){
+        // this.getServiceData();
+    }
 }
 </script>
 

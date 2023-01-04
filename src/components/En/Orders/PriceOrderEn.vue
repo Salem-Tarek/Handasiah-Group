@@ -6,7 +6,7 @@
                 <v-row>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.name"
+                            v-model="serviceForm.fullName"
                             :rules="rules.name"
                             label="Name"
                             required
@@ -37,7 +37,7 @@
                     </v-col>
                     <v-col cols="12" md="4" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.phone"
+                            v-model="serviceForm.whatsapp"
                             :rules="rules.phone"
                             label="Phone(Whatsapp)"
                             type="number"
@@ -49,7 +49,7 @@
                     </v-col>
                     <v-col cols="12" md="12" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.offreDetails"
+                            v-model="serviceForm.details"
                             :rules="rules.offreDetails"
                             label="Offer Details "
                             required
@@ -59,7 +59,7 @@
                     </v-col>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.clientField"
+                            v-model="serviceForm.career"
                             :rules="rules.clientField"
                             label="client Field Activity"
                             required
@@ -69,7 +69,7 @@
                     </v-col>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.responsiblePerson"
+                            v-model="serviceForm.person"
                             label="Client Responsible Person"
                             outlined
                             dense
@@ -87,7 +87,7 @@
                         ></v-textarea>
                     </v-col>
                     <v-col cols="12" md="12" class="pt-0">
-                        <v-btn type="submit" class="main-btn text-uppercase font-weight-bold mb-5" dark block>Submit</v-btn>
+                        <v-btn type="submit" class="main-btn text-uppercase font-weight-bold mb-5" dark block @click.prevent="submitOffer">Submit</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -96,18 +96,19 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: "PriceOrderEn",
     data(){
         return {
             serviceForm: {
-                name: "",
+                fullName: "",
                 email: "",
                 address: "",
-                offreDetails: "",
-                phone: "",
-                responsiblePerson: "",
-                clientField: "",
+                details: "",
+                whatsapp: "",
+                person: "",
+                career: "",
                 notes: "",
             },
             rules: {
@@ -130,6 +131,16 @@ export default {
                 clientField: [
                     v => !!v || 'Client Field is required',
                 ],
+            }
+        }
+    },
+    methods: {
+        async submitOffer(){
+            console.log(this.serviceForm);
+            const res = await axios.post('/frontend/orderPrice', {...this.serviceForm});
+            console.log(res);
+            if(res.status){
+                alert('تم إرسال طلب السعر بنجاح')
             }
         }
     }

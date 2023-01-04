@@ -15,12 +15,12 @@
         </template>
       </v-snackbar>
     <!-- </v-container> -->
-    <NavbarEn v-if="getLang === 'En'" />
+    <NavbarEn :services="services" v-if="getLang === 'En'" />
     <NavbarAr v-else />
     <v-main>
       <router-view @overlaytoggled="toggleDemoOverlay" />
     </v-main>
-    <FooterEn v-if="getLang === 'En'" />
+    <FooterEn :contactData="settings" v-if="getLang === 'En'" />
     <FooterAr v-else />
     <!-- <ChatEn /> -->
   </v-app>
@@ -42,7 +42,9 @@ export default {
     return {
       showSnackbar: false,
       text: "",
-      overlayShowed: false
+      overlayShowed: false,
+      settings: null,
+      services: null,
     }
   },
   components:{
@@ -59,6 +61,12 @@ export default {
     ...mapActions(['toggleLang']),
     toggleDemoOverlay(val){
       this.overlayShowed= val;
+    },
+    async getSettingsData(){
+      const res = await axios.get('/frontend/setting');
+      console.log(res.data.data);
+      this.settings = res.data.data.Setting;
+      this.services = res.data.data.Services;
     }
   },
   watch: {
@@ -74,6 +82,7 @@ export default {
     }
   },
   async mounted(){
+    this.getSettingsData();
     let currentLang = '';
     if(localStorage.getItem('currentLang')){
       currentLang = localStorage.getItem('currentLang');
