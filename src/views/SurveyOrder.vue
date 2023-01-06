@@ -1,13 +1,11 @@
 <template>
     <div class="surveyOrder">
-        <SurveyOrderEn v-if="getLang === 'En'" />
-        <SurveyOrderAr v-else />
+        <SurveyOrderEn />
     </div>
 </template>
 
 <script>
 import SurveyOrderEn from '../components/En/Orders/SurveyOrderEn.vue'
-import SurveyOrderAr from '../components/Ar/Orders/SurveyOrderAr.vue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -17,7 +15,6 @@ export default {
     },
     components:{
         SurveyOrderEn,
-        SurveyOrderAr,
     }
 }
 </script>

@@ -8,13 +8,13 @@
                     </router-link>
                     <v-list class="d-none d-md-flex font-weight-bold grey lighten-4">
                         <v-list-item class="mx-3 px-0 text-uppercase subtitle-2 font-weight-bold">
-                            <router-link class="text-decoration-none grey--text text--darken-4" to="/">Home</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/">{{ getLang === 'En' ? 'Home' : 'الرئيسية' }}</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0 text-uppercase subtitle-2 font-weight-bold" id="servicesEn">
                             <v-menu transition="slide-y-transition" bottom offset-y open-on-hover min-width="240px" attach="#servicesEn">
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on" class="d-flex align-center justify-space-between">
-                                        <span>Services</span>
+                                        <span>{{ getLang === 'En' ? 'Services' : 'الخدمات' }}</span>
                                         <v-icon right>mdi-chevron-down</v-icon>
                                     </span>
                                 </template>
@@ -28,32 +28,32 @@
                         <!-- <v-list-item class="mr-3 px-0 text-uppercase subtitle-2 font-weight-bold">
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/shop">Shop</router-link>
                         </v-list-item> -->
-                        <v-list-item class="mx-3 px-0 text-uppercase subtitle-2 font-weight-bold" id="ordersEn">
-                            <v-menu transition="slide-y-transition" bottom offset-y open-on-hover min-width="160px" attach="#ordersEn">
+                        <v-list-item class="mx-3 px-0 text-uppercase subtitle-2 font-weight-bold" :id="getLang === 'En' ? 'ordersEn' : 'ordersAr'">
+                            <v-menu transition="slide-y-transition" bottom offset-y open-on-hover min-width="160px" :attach="getLang === 'En' ? '#ordersEn' : '#ordersAr'">
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on" class="d-flex align-center justify-space-between">
-                                        <span>Orders</span>
+                                        <span>{{ getLang === 'En' ? 'Orders' : 'الطلبات'}}</span>
                                         <v-icon right>mdi-chevron-down</v-icon>
                                     </span>
                                 </template>
                                 <v-list class="font-weight-bold">
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/survey-order">make a survey</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/survey-order">{{ getLang === 'En' ? 'make a survey' : 'إجراء معاينة'}}</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-order">Service (Repair)</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-order">{{ getLang === 'En' ? 'Service (Repair)' : 'خدمة (صيانة)'}}</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/price-order">Price offer</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/price-order">{{ getLang === 'En' ? 'Price offer' : 'طلب سعر'}}</router-link>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
                         </v-list-item>
-                        <v-list-item class="mr-3 px-0 text-uppercase subtitle-2 font-weight-bold">
-                            <router-link class="text-decoration-none grey--text text--darken-4" to="/about">About Us</router-link>
+                        <v-list-item :class="['px-0 text-uppercase subtitle-2 font-weight-bold', getLang === 'En' ? 'mr-3' : 'ml-3']">
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/about">{{getLang === 'En' ? 'About Us' : 'عننا'}}</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0 text-uppercase subtitle-2 font-weight-bold">
-                            <router-link class="text-decoration-none grey--text text--darken-4" to="/contact">Contact Us</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/contact">{{getLang === 'En' ? 'Contact Us' : 'تواصل معنا'}}</router-link>
                         </v-list-item>
                         <v-list-item class="px-0" style="max-width: fit-content">
                             <v-btn class="px-0 text-uppercase" small dark v-if="getLang === 'En'" depressed @click="toggleLang('Ar')">
@@ -78,7 +78,7 @@
                 <v-list nav dense class="pa-0 font-weight-bold">
                     <v-list-item-group>
                         <v-list-item class="mx-3 px-0 text-uppercase">
-                            <router-link class="text-decoration-none grey--text text--darken-4" to="/">Home</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/">{{ getLang === 'En' ? 'Home' : 'الرئيسية' }}</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0">
                             <v-expansion-panels>
@@ -192,6 +192,12 @@ export default {
         toggleShowDrawer(){
             this.showDrawer = !this.showDrawer; 
         },
+    },
+    watch: {
+        getLang(){
+            this.showDrawer = false;
+            console.log(this.getLang);
+        }
     },
 }
 </script>

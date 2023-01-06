@@ -1,14 +1,14 @@
 <template>
     <div class="serviceOrder">
-        <h1 class="text-center text-uppercase mb-5 main-text-color">Making a Survey Order</h1>
+        <h1 class="text-center text-uppercase mb-5 main-text-color">{{getLang === 'En' ? 'Making a Survey Order' : 'طلب إجراء معاينة'}}</h1>
         <v-form ref="surveyFormEn">
             <v-container>
                 <v-row>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.fullName"
+                            v-model="serviceForm.fullname"
                             :rules="rules.name"
-                            label="Full Name"
+                            :label="getLang === 'En' ? 'Name' : 'الاسم'"
                             required
                             outlined
                             dense
@@ -18,7 +18,7 @@
                         <v-text-field
                             v-model="serviceForm.email"
                             :rules="rules.email"
-                            label="Email"
+                            :label="getLang === 'En' ? 'Email' : 'البريد الالكترونى'"
                             type="email"
                             required
                             outlined
@@ -29,7 +29,7 @@
                         <v-text-field
                             v-model="serviceForm.address"
                             :rules="rules.address"
-                            label="Address"
+                            :label="getLang === 'En' ? 'Address' : 'العنوان'"
                             required
                             outlined
                             dense
@@ -39,7 +39,7 @@
                         <v-text-field
                             v-model="serviceForm.whatsapp"
                             :rules="rules.phone"
-                            label="Phone(Whatsapp)"
+                            :label="getLang === 'En' ? 'Phone(Whatsapp)' : 'رقم الواتس اب'"
                             type="number"
                             hide-spin-buttons
                             required
@@ -50,7 +50,7 @@
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
                             v-model="serviceForm.person"
-                            label="Client Responsible Person"
+                            :label="getLang === 'En' ? 'Client Responsible Person' : 'الشخص المسئول لدى العميل'"
                             outlined
                             dense
                         ></v-text-field>
@@ -59,27 +59,45 @@
                         <v-text-field
                             v-model="serviceForm.system"
                             :rules="rules.system"
-                            label="Which System will be Checked ?"
+                            :label="getLang === 'En' ? 'Which System will be fixed ?' : 'النظام المراد إجراء معاينة له'"
                             required
                             outlined
                             dense
                         ></v-text-field>
                     </v-col>
                     <v-col cols="12" md="12" class="py-0">
-                        <v-text-field
+                        <v-menu
+                            ref="dateMenu"
+                            v-model="dateMenu"
+                            :close-on-content-click="false"
+                            transition="scale-transition"
+                            offset-y
+                            min-width="auto">
+                            <template v-slot:activator="{ on, attrs }">
+                            <v-text-field
+                                dense
+                                outlined
+                                v-model="serviceForm.date"
+                                :label="getLang === 'En' ? 'Survey Date' : 'تاريخ المعاينة'"
+                                prepend-icon="mdi-calendar"
+                                v-bind="attrs"
+                                v-on="on"
+                            ></v-text-field>
+                            </template>
+                            <v-date-picker
                             v-model="serviceForm.date"
-                            :rules="rules.date"
-                            label="Set a Time For Making The Review"
-                            required
-                            outlined
-                            dense
-                        ></v-text-field>
+                            color="primary"
+                            header-color="primary"
+                            @input="dateMenu = false"
+                            >
+                            </v-date-picker>
+                        </v-menu>
                     </v-col>    
                     <v-col cols="12" md="12" class="py-0">
                         <v-textarea
                             v-model="serviceForm.notes"
                             :rules="rules.notes"
-                            label="Notes"
+                            :label="getLang === 'En' ? 'Notes' : 'ملاحظات'"
                             required
                             outlined
                             dense
@@ -87,7 +105,7 @@
                         ></v-textarea>
                     </v-col>
                     <v-col cols="12" md="12" class="pt-0">
-                        <v-btn type="submit" class="main-btn text-uppercase font-weight-bold mb-5" dark block>Submit</v-btn>
+                        <v-btn type="submit" class="main-btn text-uppercase font-weight-bold mb-5" dark block @click.prevent="submitOffer">{{getLang === 'En' ? 'Submit' : 'إرسال'}}</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -97,20 +115,23 @@
 
 <script>
 import axios from 'axios'
+import { mapGetters } from 'vuex';
+
 export default {
     name: "SurveyOrderEn",
     data(){
         return {
             serviceForm: {
-                fullName: "",
+                fullname: "",
                 email: "",
                 address: "",
                 person: "",
                 whatsapp: "",
                 system: "",
-                date: "",
+                date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
                 notes: "",
             },
+            dateMenu: false,
             rules: {
                 name: [
                     v => !!v || 'Name is required',
@@ -140,9 +161,20 @@ export default {
             const res = await axios.post('/frontend/order', {...this.serviceForm});
             console.log(res);
             if(res.status){
+                this.serviceForm.fullname = "";
+                this.serviceForm.email = "";
+                this.serviceForm.address = "";
+                this.serviceForm.person = "";
+                this.serviceForm.whatsapp = "";
+                this.serviceForm.system = "";
+                this.serviceForm.date = (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10);
+                this.serviceForm.notes = "";
                 alert('تم إرسال طلب المعاينة بنجاح')
             }
         }
+    },
+    computed: {
+        ...mapGetters(['getLang']),
     }
 }
 </script>

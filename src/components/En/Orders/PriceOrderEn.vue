@@ -1,14 +1,14 @@
 <template>
     <div class="priceOrderEn">
-        <h1 class="text-center text-uppercase mb-5 main-text-color">Price Offer Order</h1>
+        <h1 class="text-center text-uppercase mb-5 main-text-color">{{getLang === 'En' ? 'Price Offer Order' : 'طلب عرض سعر'}}</h1>
         <v-form ref="priceFormEn">
             <v-container>
                 <v-row>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="serviceForm.fullName"
+                            v-model="serviceForm.fullname"
                             :rules="rules.name"
-                            label="Name"
+                            :label="getLang === 'En' ? 'Name' : 'الاسم'"
                             required
                             outlined
                             dense
@@ -18,7 +18,7 @@
                         <v-text-field
                             v-model="serviceForm.email"
                             :rules="rules.email"
-                            label="Email"
+                            :label="getLang === 'En' ? 'Email' : 'البريد الالكترونى'"
                             type="email"
                             required
                             outlined
@@ -29,7 +29,7 @@
                         <v-text-field
                             v-model="serviceForm.address"
                             :rules="rules.address"
-                            label="Address"
+                            :label="getLang === 'En' ? 'Address' : 'العنوان'"
                             required
                             outlined
                             dense
@@ -39,7 +39,7 @@
                         <v-text-field
                             v-model="serviceForm.whatsapp"
                             :rules="rules.phone"
-                            label="Phone(Whatsapp)"
+                            :label="getLang === 'En' ? 'Phone(Whatsapp)' : 'رقم الواتس اب'"
                             type="number"
                             hide-spin-buttons
                             required
@@ -51,7 +51,7 @@
                         <v-text-field
                             v-model="serviceForm.details"
                             :rules="rules.offreDetails"
-                            label="Offer Details "
+                            :label="getLang === 'En' ? 'Offer Details' : 'تفاصيل العرض'"
                             required
                             outlined
                             dense
@@ -61,7 +61,7 @@
                         <v-text-field
                             v-model="serviceForm.career"
                             :rules="rules.clientField"
-                            label="client Field Activity"
+                            :label="getLang === 'En' ? 'client Field Activity' : 'مجال عمل العميل'"
                             required
                             outlined
                             dense
@@ -70,7 +70,7 @@
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
                             v-model="serviceForm.person"
-                            label="Client Responsible Person"
+                            :label="getLang === 'En' ? 'Client Responsible Person' : 'الشخص المسئول لدى العميل'"
                             outlined
                             dense
                         ></v-text-field>
@@ -79,7 +79,7 @@
                         <v-textarea
                             v-model="serviceForm.notes"
                             :rules="rules.notes"
-                            label="Notes"
+                            :label="getLang === 'En' ? 'Notes' : 'ملاحظات'"
                             required
                             outlined
                             dense
@@ -87,7 +87,7 @@
                         ></v-textarea>
                     </v-col>
                     <v-col cols="12" md="12" class="pt-0">
-                        <v-btn type="submit" class="main-btn text-uppercase font-weight-bold mb-5" dark block @click.prevent="submitOffer">Submit</v-btn>
+                        <v-btn type="submit" class="main-btn text-uppercase font-weight-bold mb-5" dark block @click.prevent="submitOffer">{{getLang === 'En' ? 'Submit' : 'إرسال'}}</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -97,12 +97,13 @@
 
 <script>
 import axios from 'axios'
+import { mapGetters } from 'vuex';
 export default {
     name: "PriceOrderEn",
     data(){
         return {
             serviceForm: {
-                fullName: "",
+                fullname: "",
                 email: "",
                 address: "",
                 details: "",
@@ -140,9 +141,20 @@ export default {
             const res = await axios.post('/frontend/orderPrice', {...this.serviceForm});
             console.log(res);
             if(res.status){
-                alert('تم إرسال طلب السعر بنجاح')
+                this.serviceForm.fullname = "";
+                this.serviceForm.email = "";
+                this.serviceForm.address = "";
+                this.serviceForm.details = "";
+                this.serviceForm.whatsapp = "";
+                this.serviceForm.person = "";
+                this.serviceForm.career = "";
+                this.serviceForm.notes = "";
+                alert('تم إرسال طلب السعر بنجاح');
             }
         }
+    },
+    computed: {
+        ...mapGetters(['getLang']),
     }
 }
 </script>

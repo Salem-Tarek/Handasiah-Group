@@ -1,14 +1,14 @@
 <template>
     <div class="aboutEn">
         <div class="subheader d-flex align-end">
-            <v-container fluid class="px-0">
+            <v-container fluid class="px-0" style="direction: ltr">
                 <carousel :freeDrag="false" :pullDrag="false" :touchDrag="false" :mouseDrag="false" :autoplay="true" :nav="false" :responsive="{ 0:{items:1} }" :dots="false">
                     <v-img width="100%" height="300px" src="../../../assets/about/service1.jpg"></v-img>
                     <v-img width="100%" height="300px" src="../../../assets/about/service2.jpeg"></v-img>
                     <v-img width="100%" height="300px" src="../../../assets/about/service3.jpeg"></v-img>
                 </carousel>
                 <div class="header-content white--text text-center">
-                    <p class="text-uppercase display-1 font-weight-bold">About Us</p>
+                    <p class="text-uppercase display-1 font-weight-bold">{{ getLang === 'En' ? 'About Us' : 'عننا' }}</p>
                     <p class="text-subtitle-2 text-sm-h6 font-weight-bold mb-0"> {{ `"${aboutData.setting.title}"` }}</p>
                 </div>
             </v-container>
@@ -79,13 +79,13 @@
                 </v-col>
             </v-row> -->
             <div class="certificates my-7">
-                <p class="headline main-title font-weight-medium mx-auto mb-5 white--text text-center py-3 px-5">Our Certificates</p>
+                <p class="headline main-title font-weight-medium mx-auto mb-5 white--text text-center py-3 px-5">{{ getLang === 'En' ? 'Our Certificates' : 'شهــاداتـنــــا' }}</p>
                 <div class="certificates-wrapper d-flex flex-wrap py-5 justify-center align-center">
                     <img v-for="img in aboutData.certificates" :src="img.image" :key="img.id">
                 </div>
             </div>
             <div class="partners my-7">
-                <p class="headline main-title font-weight-medium mx-auto mb-5 white--text text-center py-3 px-5">Companies we have worked with</p>
+                <p class="headline main-title font-weight-medium mx-auto mb-5 white--text text-center py-3 px-5">{{ getLang === 'En' ? 'Companies we have worked with' : 'شركات تم العمل معها' }}</p>
                 <div class="partners-wrapper d-flex flex-wrap py-5 justify-center align-center">
                     <img v-for="img in aboutData.workedCompanies" :src="img.image" :key="img.id">
                 </div>
@@ -97,6 +97,7 @@
 
 <script>
 import carousel from 'vue-owl-carousel'
+import { mapGetters } from 'vuex'
 export default {
     name: "About",
     components: { 
@@ -107,6 +108,9 @@ export default {
             type: Object,
             required: true
         }
+    },
+    computed: {
+        ...mapGetters(['getLang']),
     }
 }
 </script>

@@ -19,7 +19,11 @@ export default {
     },
     methods: {
         async getServiceData(){
-            const res = await axios.get('/dashboard/servicesPage');
+            const res = await axios.get('/dashboard/servicesPage', {
+                headers: {
+                    language: localStorage.getItem('currentLang').toLowerCase(),
+                }   
+            });
             console.log(res);
         }
     },

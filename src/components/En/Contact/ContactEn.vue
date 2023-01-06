@@ -1,14 +1,14 @@
 <template>
-    <div class="contactEn">
-        <h1 class="text-center text-uppercase mb-5 main-text-color">Contact Us</h1>
+    <div class="contact">
+        <h1 class="text-center text-uppercase mb-5 main-text-color">{{ getLang === 'En' ? 'Contact Us' : 'تواصل معنا' }}</h1>
         <v-form ref="contactFormEn">
             <v-container>
                 <v-row>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="contactForm.name"
+                            v-model="contactForm.fullname"
                             :rules="rules.name"
-                            label="Name"
+                            :label="getLang === 'En' ? 'Name' : 'الاسم'"
                             required
                             outlined
                             dense
@@ -18,7 +18,7 @@
                         <v-text-field
                             v-model="contactForm.email"
                             :rules="rules.email"
-                            label="Email"
+                            :label="getLang === 'En' ? 'Email' : 'البريد الالكترونى'"
                             type="email"
                             required
                             outlined
@@ -29,7 +29,7 @@
                         <v-text-field
                             v-model="contactForm.phone"
                             :rules="rules.phone"
-                            label="Phone"
+                            :label="getLang === 'En' ? 'Phone' : 'رقم الهاتف'"
                             type="number"
                             hide-spin-buttons
                             required
@@ -39,9 +39,9 @@
                     </v-col>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
-                            v-model="contactForm.Whatsapp"
+                            v-model="contactForm.whatsapp"
                             :rules="rules.Whatsapp"
-                            label="Phone(Whatsapp)"
+                            :label="getLang === 'En' ? 'Phone(Whatsapp)' : 'رقم الواتس اب'"
                             type="number"
                             hide-spin-buttons
                             required
@@ -53,7 +53,7 @@
                         <v-textarea
                             v-model="contactForm.subject"
                             :rules="rules.subject"
-                            label="Subject"
+                            :label="getLang === 'En' ? 'Subject' : 'الموضوع'"
                             required
                             outlined
                             dense
@@ -61,7 +61,7 @@
                         ></v-textarea>
                     </v-col>
                     <v-col cols="12" md="12" class="pt-0">
-                        <v-btn type="submit" class="main-btn text-uppercase font-weight-bold mb-5" dark block>Submit</v-btn>
+                        <v-btn type="submit" class="main-btn text-uppercase font-weight-bold mb-5" dark block @click.prevent="submitContact">{{ getLang === 'En' ? 'Submit' : 'إرسال' }}</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -70,15 +70,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import axios from 'axios'
 export default {
     name: "ContactEn",
     data(){
         return {
             contactForm: {
-                name: "",
+                fullname: "",
                 email: "",
                 phone: "",
-                Whatsapp: "",
+                whatsapp: "",
                 subject: "",
             },
             rules: {
@@ -98,6 +100,22 @@ export default {
                 subject: [
                     v => !!v || 'Subject is required',
                 ],
+            }
+        }
+    },
+    computed: {
+        ...mapGetters(['getLang'])
+    },
+    methods: {
+        async submitContact(){
+            const res = await axios.post('/frontend/contactUs', this.contactForm);
+            if(res.status){
+                this.contactForm.fullname =  "";
+                this.contactForm.email =  "";
+                this.contactForm.phone =  "";
+                this.contactForm.whatsapp =  "";
+                this.contactForm.subject =  "";
+                alert('تم إرسال الرسالة بنجاح');
             }
         }
     }

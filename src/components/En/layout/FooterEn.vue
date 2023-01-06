@@ -100,7 +100,7 @@ export default {
     computed: {
         ...mapGetters(['getLang'])
     },
-    mounted(){
+    created(){
         console.log(this.contactData);
     }
 }
