@@ -72,6 +72,8 @@
 <script>
 import { mapGetters } from 'vuex'
 import axios from 'axios'
+import Swal from 'sweetalert2'
+
 export default {
     name: "ContactEn",
     data(){
@@ -115,7 +117,17 @@ export default {
                 this.contactForm.phone =  "";
                 this.contactForm.whatsapp =  "";
                 this.contactForm.subject =  "";
-                alert('تم إرسال الرسالة بنجاح');
+                // alert('تم إرسال الرسالة بنجاح');
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: this.getLang === 'En' ? 'Message Sent Successfully' : 'تم إرسال الرسالة بنجاح',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    didDestroy: () => {
+                        location.reload();
+                    }
+                })
             }
         }
     }

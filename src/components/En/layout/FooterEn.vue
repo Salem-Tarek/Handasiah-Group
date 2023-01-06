@@ -100,9 +100,6 @@ export default {
     computed: {
         ...mapGetters(['getLang'])
     },
-    created(){
-        console.log(this.contactData);
-    }
 }
 </script>
 

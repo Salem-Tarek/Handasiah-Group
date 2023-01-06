@@ -63,17 +63,20 @@ export default {
       this.overlayShowed= val;
     },
     async getSettingsData(){
-      const res = await axios.get('/frontend/setting');
-      console.log(res.data.data);
+      const res = await axios.get('/frontend/setting', {
+        headers: {
+          language: localStorage.getItem('currentLang').toLowerCase(),
+        } 
+      });
       this.settings = res.data.data.Setting;
       this.services = res.data.data.Services;
     }
   },
   watch: {
     getLang(newVal){
-      this.getSettingsData();
       localStorage.setItem('currentLang', newVal)
       this.toggleLang(newVal);
+      this.getSettingsData();
       if(newVal === "En"){
         this.text = "Language Changed to English";
         this.$vuetify.rtl = false;

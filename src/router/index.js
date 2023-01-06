@@ -39,7 +39,7 @@ const routes = [
     component: PriceOrder,
   },
   {
-    path: "/service-page",
+    path: "/service-page/:title",
     name: "Service",
     component: Service,
   },

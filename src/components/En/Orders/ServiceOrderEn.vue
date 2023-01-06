@@ -116,6 +116,7 @@
 <script>
 import axios from 'axios'
 import { mapGetters } from 'vuex';
+import Swal from 'sweetalert2'
 
 export default {
     name: "ServiceOrderEn",
@@ -157,9 +158,7 @@ export default {
     },
     methods: {
         async submitOffer(){
-            console.log(this.serviceForm);
             const res = await axios.post('/frontend/orderService', {...this.serviceForm});
-            console.log(res);
             if(res.status){
                 this.serviceForm.fullname = "";
                 this.serviceForm.email = "";
@@ -169,7 +168,17 @@ export default {
                 this.serviceForm.system = "";
                 this.serviceForm.date = (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10);
                 this.serviceForm.notes = "";
-                alert('تم إرسال طلب الخدمة بنجاح')
+                // alert('تم إرسال طلب الخدمة بنجاح')
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: this.getLang === 'En' ? 'Order Sent Successfully' : 'تم إرسال الطلب بنجاح',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    didDestroy: () => {
+                        location.reload();
+                    }
+                })
             }
         }
     },

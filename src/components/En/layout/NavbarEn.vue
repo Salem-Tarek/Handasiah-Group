@@ -20,7 +20,7 @@
                                 </template>
                                 <v-list class="font-weight-bold">
                                     <v-list-item v-for="(service, index) in services" :key="index">
-                                        <router-link class="text-decoration-none grey--text text--darken-4" :to="`/${service.title}`">{{ service.title }}</router-link>
+                                        <router-link class="text-decoration-none grey--text text--darken-4" :to="`/service-page/${service.title}`">{{ service.title }}</router-link>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
@@ -84,39 +84,12 @@
                             <v-expansion-panels>
                                 <v-expansion-panel>
                                     <v-expansion-panel-header class="pa-0 font-weight-bold text-uppercase">
-                                        Services
+                                        {{ getLang === 'En' ? 'Services' : 'الخدمات' }}
                                     </v-expansion-panel-header>
                                     <v-expansion-panel-content>
                                         <v-list class="py-0">
-                                            <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Surveillance Systems</router-link>
-                                            </v-list-item>
-                                            <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Fire Alarm</router-link>
-                                            </v-list-item>
-                                            <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Fire Fighting</router-link>
-                                            </v-list-item>
-                                            <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Smart Home</router-link>
-                                            </v-list-item>
-                                            <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Time Attendance Devices</router-link>
-                                            </v-list-item>
-                                            <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Antitheft Alarm</router-link>
-                                            </v-list-item>
-                                            <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Network Systems</router-link>
-                                            </v-list-item>
-                                            <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Centrals Systems</router-link>
-                                            </v-list-item>
-                                            <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Air Conditioning Systems</router-link>
-                                            </v-list-item>
-                                            <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" to="/service-page">Finishings</router-link>
+                                            <v-list-item v-for="(service, index) in services" :key="index" class="mx-3 px-0 text-uppercase">
+                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" :to="`/service-page/${service.title}`">{{ service.title }}</router-link>
                                             </v-list-item>
                                         </v-list>
                                     </v-expansion-panel-content>
@@ -130,18 +103,18 @@
                             <v-expansion-panels>
                                 <v-expansion-panel>
                                     <v-expansion-panel-header class="pa-0 font-weight-bold text-uppercase">
-                                        Orders
+                                        {{ getLang === 'En' ? 'Orders' : 'الطلبات'}}
                                     </v-expansion-panel-header>
                                     <v-expansion-panel-content>
                                         <v-list class="py-0">
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/survey-order">make a survey</router-link>
+                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/survey-order">{{ getLang === 'En' ? 'make a survey' : 'إجراء معاينة'}}</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/service-order">Service (Repair)</router-link>
+                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/service-order">{{ getLang === 'En' ? 'Service (Repair)' : 'خدمة (صيانة)'}}</router-link>
                                             </v-list-item>
                                             <v-list-item class="mx-3 px-0 text-uppercase">
-                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/price-order">Price offer</router-link>
+                                                <router-link class="text-decoration-none font-weight-bold subtitle-2 grey--text text--darken-4" to="/price-order">{{ getLang === 'En' ? 'Price offer' : 'طلب سعر'}}</router-link>
                                             </v-list-item>
                                         </v-list>
                                     </v-expansion-panel-content>
@@ -149,10 +122,10 @@
                             </v-expansion-panels>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0 text-uppercase">
-                            <router-link class="text-decoration-none grey--text text--darken-4" to="/about">About Us</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/about">{{getLang === 'En' ? 'About Us' : 'عننا'}}</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0 text-uppercase">
-                            <router-link class="text-decoration-none grey--text text--darken-4" to="/contact">Contact Us</router-link>
+                            <router-link class="text-decoration-none grey--text text--darken-4" to="/contact">{{getLang === 'En' ? 'Contact Us' : 'تواصل معنا'}}</router-link>
                         </v-list-item>
                         <v-list-item style="max-width: fit-content">
                             <v-btn class="px-0 text-uppercase" small dark v-if="getLang === 'En'" depressed @click="toggleLang('Ar')">
@@ -196,7 +169,6 @@ export default {
     watch: {
         getLang(){
             this.showDrawer = false;
-            console.log(this.getLang);
         }
     },
 }

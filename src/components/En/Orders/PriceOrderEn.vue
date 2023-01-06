@@ -98,6 +98,8 @@
 <script>
 import axios from 'axios'
 import { mapGetters } from 'vuex';
+import Swal from 'sweetalert2'
+
 export default {
     name: "PriceOrderEn",
     data(){
@@ -137,9 +139,7 @@ export default {
     },
     methods: {
         async submitOffer(){
-            console.log(this.serviceForm);
             const res = await axios.post('/frontend/orderPrice', {...this.serviceForm});
-            console.log(res);
             if(res.status){
                 this.serviceForm.fullname = "";
                 this.serviceForm.email = "";
@@ -149,7 +149,17 @@ export default {
                 this.serviceForm.person = "";
                 this.serviceForm.career = "";
                 this.serviceForm.notes = "";
-                alert('تم إرسال طلب السعر بنجاح');
+                // alert('تم إرسال طلب السعر بنجاح');
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: this.getLang === 'En' ? 'Order Sent Successfully' : 'تم إرسال الطلب بنجاح',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    didDestroy: () => {
+                        location.reload();
+                    }
+                })
             }
         }
     },
