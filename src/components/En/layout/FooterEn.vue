@@ -39,7 +39,7 @@
                             </v-list-item>
                             <v-list-item class="align-center my-3 pl-0 grey--text">
                                 <v-icon left color="white">mdi-cellphone</v-icon>
-                                <p class="mb-0"><a class="text-decoration-none grey--text" :href="`tel:02${contactData.mobile2 || '37408436'}`">02-{{ contactData.mobile2 || '37408436' }}</a> / <a class="text-decoration-none grey--text" :href="`tel:${contactData.gmail}`">{{ contactData.mobile1 }}</a></p>
+                                <p class="mb-0"><a class="text-decoration-none grey--text" :href="`tel:02${contactData.mobile2}`">02-{{ contactData.mobile2 }}</a> / <a class="text-decoration-none grey--text" :href="`tel:${contactData.mobile1}`">{{ contactData.mobile1 }}</a></p>
                             </v-list-item>
                             <v-list-item class="align-center my-3 pl-0 grey--text">
                                 <v-icon left color="white">mdi-email</v-icon>
