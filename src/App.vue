@@ -70,6 +70,7 @@ export default {
       });
       this.settings = res.data.data.Setting;
       this.services = res.data.data.Services;
+      localStorage.setItem('servicesTitles', JSON.stringify(this.services.map(service => service.title)))
     }
   },
   watch: {

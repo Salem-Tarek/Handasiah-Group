@@ -39,17 +39,20 @@ export default {
         carousel,
     },
     computed:{
-        ...mapGetters(['getLang'])
+        ...mapGetters(['getLang']),
     },
     watch: {
         $route: {
             handler(){
                 this.overlay = true;
                 this.getServiceData();
-                // Get The Right URL of the new Param related to Language
             },
             deep: true,
             immediate: true,
+        },
+        getLang(){
+            this.overlay = true;
+            this.getServiceDataAfterToggleLang();
         }
     },
     methods: {
@@ -63,8 +66,26 @@ export default {
                 this.service = res.data.data;
                 this.overlay = false;
             }
+        },
+        async getServiceDataAfterToggleLang(){
+            this.overlay = true;
+            const res = await axios.get('/frontend/setting', {
+                headers: {
+                    language: localStorage.getItem('currentLang').toLowerCase(),
+                } 
+            });
+            let services = res.data.data.Services;
+
+            localStorage.setItem('servicesTitles', JSON.stringify(services.map(service => service.title)))
+
+            
+            let currentServiceTitle = localStorage.getItem('servicesTitles') && JSON.parse(localStorage.getItem('servicesTitles'))[parseInt(localStorage.getItem('serivceId'))];
+            this.$router.push(`/service-page/${currentServiceTitle}`)
         }
-    }
+    },
+    mounted(){
+        this.getServiceData();
+    },
 }
 </script>
 

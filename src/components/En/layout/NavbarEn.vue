@@ -20,7 +20,8 @@
                                 </template>
                                 <v-list class="font-weight-bold">
                                     <v-list-item v-for="(service, index) in services" :key="index">
-                                        <router-link class="text-decoration-none grey--text text--darken-4" :to="`/service-page/${service.title}`">{{ service.title }}</router-link>
+                                        <v-btn @click="navigateToServicePage(service.title, index)" block class="text-decoration-none grey--text text--darken-4 justify-start font-weight-bold" text>{{ service.title }}</v-btn>
+                                        <!-- <router-link class="text-decoration-none grey--text text--darken-4" :to="`/service-page/${service.title}`">{{ service.title }}</router-link> -->
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
@@ -89,7 +90,7 @@
                                     <v-expansion-panel-content>
                                         <v-list class="py-0">
                                             <v-list-item v-for="(service, index) in services" :key="index" class="mx-3 px-0 text-uppercase">
-                                                <router-link class="font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" :to="`/service-page/${service.title}`">{{ service.title }}</router-link>
+                                                <v-btn @click="navigateToServicePage(service.title, index)" block class="justify-start font-weight-bold subtitle-2 text-decoration-none grey--text text--darken-4" text>{{ service.title }}</v-btn>
                                             </v-list-item>
                                         </v-list>
                                     </v-expansion-panel-content>
@@ -165,6 +166,12 @@ export default {
         toggleShowDrawer(){
             this.showDrawer = !this.showDrawer; 
         },
+        navigateToServicePage(title, index){
+            console.log(title);
+            console.log(index);
+            localStorage.setItem('serivceId', JSON.stringify(index));
+            this.$router.push({ name: 'Service', params: {title: title} })
+        }
     },
     watch: {
         getLang(){
@@ -183,7 +190,7 @@ nav.en {
     .v-list {
         .v-list-item{
             min-width: fit-content !important;
-            &:hover > a, .router-link-exact-active {
+            .btn:hover > .btn, .router-link-exact-active {
                 color: #0057a8 !important;
             }
             .v-expansion-panel {
