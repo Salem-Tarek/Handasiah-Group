@@ -8,7 +8,7 @@
                 indeterminate
             ></v-progress-circular>
         </v-overlay>
-        <v-container fluid>
+        <v-container fluid style="direction: ltr">
             <carousel v-if="service.media" :autoplayTimeout="3000" :autoplay="true" :nav="false" :responsive="{ 0:{items:1} }">
                 <v-img v-for="(img, index) in service.media" :key="`serviceImg-${index}`" height="calc(100vh - 126px)" :src="img.image"></v-img>
             </carousel>
@@ -76,6 +76,10 @@ export default {
             });
             let services = res.data.data.Services;
 
+            if(res.status === 200){
+                this.overlay = false;
+            }
+
             localStorage.setItem('servicesTitles', JSON.stringify(services.map(service => service.title)))
 
             
@@ -83,7 +87,7 @@ export default {
             this.$router.push(`/service-page/${currentServiceTitle}`)
         }
     },
-    mounted(){
+    created(){
         this.getServiceData();
     },
 }

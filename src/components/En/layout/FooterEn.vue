@@ -11,27 +11,27 @@
                         <v-list dense class="transparent">
                             <v-list-item class="px-0">
                                 <v-list-item-title class="font-weight-bold white--text title">
-                                    Discover
+                                    {{ getLang === 'En' ? 'Discover' : 'إكتشف' }}
                                 </v-list-item-title>
                             </v-list-item>
                             <v-list-item class="px-0 my-3">
-                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/">Home</router-link>
+                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/">{{ getLang === 'En' ? 'Home' : 'الرئيسية' }}</router-link>
                             </v-list-item>
                             <v-list-item class="px-0 my-3">
-                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/about">About Us</router-link>
+                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/about">{{ getLang === 'En' ? 'About Us' : 'عننا' }}</router-link>
                             </v-list-item>
                             <!-- <v-list-item class="px-0 my-3">
                                 <router-link class="grey--text text-decoration-none  subtitle-1" to="/shop">Shop</router-link>
                             </v-list-item> -->
                             <v-list-item class="px-0 my-3">
-                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/contact">Contact Us</router-link>
+                                <router-link class="grey--text text-decoration-none  subtitle-1" to="/contact">{{ getLang === 'En' ? 'Contact Us' : 'اتصل بنا' }}</router-link>
                             </v-list-item>
                         </v-list>
                     </v-col>
                     <v-col md="4" cols="12">
                         <v-list dense class="contacts transparent pb-0">
                             <v-list-item-title class="font-weight-bold white--text title">
-                                Contacts
+                                {{ getLang === 'En' ? 'Contacts' : 'وسائل التواصل' }}
                             </v-list-item-title>
                             <v-list-item class="align-center my-3 pl-0 grey--text">
                                 <v-icon left color="white">mdi-home</v-icon>
@@ -82,7 +82,7 @@
                 </v-list>
             </div>
             <div class="copyRight text-center white--text mb-0 mt-3">
-                <p class="mb-0">&copy; Handasiah Group 2022 - All rights reserved.</p>
+                <p class="mb-0">&copy; {{  getLang === 'En' ? `Handasiah Group ${currentYear} - All rights reserved.` : `الهندسية جروب ${currentYear} حقوق الطبع محفوظة` }}</p>
             </div>
         </v-container>
     </footer>
@@ -98,7 +98,10 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['getLang'])
+        ...mapGetters(['getLang']),
+        currentYear(){
+            return new Date().getFullYear()
+        }
     },
 }
 </script>
