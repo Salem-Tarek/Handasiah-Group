@@ -167,8 +167,6 @@ export default {
             this.showDrawer = !this.showDrawer; 
         },
         navigateToServicePage(title, index){
-            console.log(title);
-            console.log(index);
             localStorage.setItem('serivceId', JSON.stringify(index));
             this.$router.push({ name: 'Service', params: {title: title} })
         }
