@@ -75,7 +75,6 @@ export default {
   },
   watch: {
     getLang(newVal){
-      localStorage.setItem('currentLang', newVal)
       this.toggleLang(newVal);
       this.getSettingsData();
       if(newVal === "En"){
@@ -90,15 +89,14 @@ export default {
   },
   async mounted(){
     this.getSettingsData();
-    let currentLang = '';
-    if(localStorage.getItem('currentLang')){
-      currentLang = localStorage.getItem('currentLang');
-    }else{
+    let currentLang = localStorage.getItem('currentLang') && localStorage.getItem('currentLang') || '';
+    
+    if(!currentLang){
       const res = await axios.get('/frontend/getLanguage');
       currentLang = res.data.data.Language[0].toUpperCase() + res.data.data.Language.slice(1);
       localStorage.setItem('currentLang', currentLang)
     }
-    this.toggleLang(currentLang)
+    this.toggleLang(currentLang);
   }
 };
 </script>

@@ -50,6 +50,7 @@
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
                             v-model="serviceForm.person"
+                            :rules="rules.person"
                             :label="getLang === 'En' ? 'Client Responsible Person' : 'الشخص المسئول لدى العميل'"
                             outlined
                             dense
@@ -135,55 +136,76 @@ export default {
             dateMenu: false,
             rules: {
                 name: [
-                    v => !!v || 'Name is required',
+                    v => !!v || this.rulesLocalization.name,
                 ],
                 email: [
-                    v => !!v || 'Email is required',
-                    v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+                    v => !!v || this.rulesLocalization.email,
+                    v => /.+@.+\..+/.test(v) || this.rulesLocalization.emailValidation,
                 ],
                 address: [
-                    v => !!v || 'Address is required',
+                    v => !!v || this.rulesLocalization.address,
                 ],
                 phone: [
-                    v => !!v || 'Phone is required',
+                    v => !!v || this.rulesLocalization.phone,
                 ],
                 system: [
-                    v => !!v || 'System is required',
+                    v => !!v || this.rulesLocalization.system,
                 ],
                 date: [
-                    v => !!v || 'Date is required',
+                    v => !!v || this.rulesLocalization.date,
+                ],
+                person: [
+                    v => !!v || this.rulesLocalization.person,
                 ],
             }
         }
     },
     methods: {
         async submitOffer(){
+            for(let key in this.serviceForm){
+                if(this.serviceForm[key].trim() === ''){
+                    this.alertMaker('Please, Fill All Fields', 'من فضلك قم بملئ جميع حقول الإدخال', 'warning');
+                    // location.reload();
+                    return;
+                }
+            }
             const res = await axios.post('/frontend/order', {...this.serviceForm});
-            if(res.status){
-                this.serviceForm.fullname = "";
-                this.serviceForm.email = "";
-                this.serviceForm.address = "";
-                this.serviceForm.person = "";
-                this.serviceForm.whatsapp = "";
-                this.serviceForm.system = "";
-                this.serviceForm.date = (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10);
-                this.serviceForm.notes = "";
+            if(res.status === 200){
+                this.alertMaker('Order Sent Successfully', 'تم إرسال الطلب بنجاح');
+                location.reload();
                 // alert('تم إرسال طلب المعاينة بنجاح')
-                Swal.fire({
+            }
+        },
+        alertMaker(titleEn, titleAr, icon = 'success'){
+            Swal.fire({
                     position: 'center',
-                    icon: 'success',
-                    title: this.getLang === 'En' ? 'Order Sent Successfully' : 'تم إرسال الطلب بنجاح',
+                    customClass: {
+                        title: this.getLang === 'En' ? 'alertClassEn' : 'alertClassAr',
+                    },
+                    icon: icon,
+                    title: this.getLang === 'En' ? titleEn : titleAr,
                     showConfirmButton: false,
                     timer: 3000,
-                    didDestroy: () => {
-                        location.reload();
-                    }
+                    // didDestroy: () => {
+                    //     // location.reload();
+                    // }
                 })
-            }
         }
     },
     computed: {
         ...mapGetters(['getLang']),
+        rulesLocalization(){
+            return {
+                name: this.getLang === 'En' ? 'Name is required' : 'الاسم مطلوب',
+                email: this.getLang === 'En' ? 'Email is required' : 'البريد الالكترونى مطلوب',
+                emailValidation: this.getLang === 'En' ? 'Email must be valid' : 'البريد الالكترونى يجب ان يكون صحيح البنية',
+                phone: this.getLang === 'En' ? 'Phone is required' : 'رقم الهاتف مطلوب',
+                address: this.getLang === 'En' ? 'Address is required' : 'العنوان مطلوب',
+                system: this.getLang === 'En' ? 'System will be fixed is required' : 'النظام المراد إصلاحة مطلوب',
+                date: this.getLang === 'En' ? 'Date is required' : 'التاريخ مطلوب',
+                person: this.getLang === 'En' ? 'Client Responsible Person is required' : 'الشخص المسئول لدى العميل مطلوب',
+            }
+        }
     }
 }
 </script>

@@ -70,6 +70,7 @@
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
                             v-model="serviceForm.person"
+                            :rules="rules.person"
                             :label="getLang === 'En' ? 'Client Responsible Person' : 'الشخص المسئول لدى العميل'"
                             outlined
                             dense
@@ -116,55 +117,76 @@ export default {
             },
             rules: {
                 name: [
-                    v => !!v || 'Name is required',
+                    v => !!v || this.rulesLocalization.name,
                 ],
                 email: [
-                    v => !!v || 'Email is required',
-                    v => /.+@.+\..+/.test(v) || 'Email must be valid',
+                    v => !!v || this.rulesLocalization.email,
+                    v => /.+@.+\..+/.test(v) || this.rulesLocalization.emailValidation,
                 ],
                 address: [
-                    v => !!v || 'Address is required',
+                    v => !!v || this.rulesLocalization.address,
                 ],
                 offreDetails: [
-                    v => !!v || 'Offre Details is required',
+                    v => !!v || this.rulesLocalization.offreDetails,
                 ],
                 phone: [
-                    v => !!v || 'Phone is required',
+                    v => !!v || this.rulesLocalization.phone,
                 ],
                 clientField: [
-                    v => !!v || 'Client Field is required',
+                    v => !!v || this.rulesLocalization.clientField,
+                ],
+                person: [
+                    v => !!v || this.rulesLocalization.person,
                 ],
             }
         }
     },
     methods: {
         async submitOffer(){
+            for(let key in this.serviceForm){
+                if(this.serviceForm[key].trim() === ''){
+                    this.alertMaker('Please, Fill All Fields', 'من فضلك قم بملئ جميع حقول الإدخال', 'warning');
+                    // location.reload();
+                    return;
+                }
+            }
             const res = await axios.post('/frontend/orderPrice', {...this.serviceForm});
-            if(res.status){
-                this.serviceForm.fullname = "";
-                this.serviceForm.email = "";
-                this.serviceForm.address = "";
-                this.serviceForm.details = "";
-                this.serviceForm.whatsapp = "";
-                this.serviceForm.person = "";
-                this.serviceForm.career = "";
-                this.serviceForm.notes = "";
+            if(res.status === 200){
                 // alert('تم إرسال طلب السعر بنجاح');
-                Swal.fire({
+                this.alertMaker('Order Sent Successfully', 'تم إرسال الطلب بنجاح');
+                location.reload();
+            }
+        },
+        alertMaker(titleEn, titleAr, icon = 'success'){
+            Swal.fire({
                     position: 'center',
-                    icon: 'success',
-                    title: this.getLang === 'En' ? 'Order Sent Successfully' : 'تم إرسال الطلب بنجاح',
+                    customClass: {
+                        title: this.getLang === 'En' ? 'alertClassEn' : 'alertClassAr',
+                    },
+                    icon: icon,
+                    title: this.getLang === 'En' ? titleEn : titleAr,
                     showConfirmButton: false,
                     timer: 3000,
-                    didDestroy: () => {
-                        location.reload();
-                    }
+                    // didDestroy: () => {
+                    //     // location.reload();
+                    // }
                 })
-            }
         }
     },
     computed: {
         ...mapGetters(['getLang']),
+        rulesLocalization(){
+            return {
+                name: this.getLang === 'En' ? 'Name is required' : 'الاسم مطلوب',
+                email: this.getLang === 'En' ? 'Email is required' : 'البريد الالكترونى مطلوب',
+                emailValidation: this.getLang === 'En' ? 'Email must be valid' : 'البريد الالكترونى يجب ان يكون صحيح البنية',
+                phone: this.getLang === 'En' ? 'Phone is required' : 'رقم الهاتف مطلوب',
+                address: this.getLang === 'En' ? 'Address is required' : 'العنوان مطلوب',
+                offreDetails: this.getLang === 'En' ? 'Offer Details is required' : 'تفاصيل العرض مطلوبة',
+                clientField: this.getLang === 'En' ? 'Client Field is required' : 'مجال عمل العميل مطلوب',
+                person: this.getLang === 'En' ? 'Client Responsible Person is required' : 'الشخص المسئول لدى العميل مطلوب',
+            }
+        }
     }
 }
 </script>
@@ -175,5 +197,12 @@ export default {
 }
 .main-btn:hover, .main-btn:focus {
     background-color: #0057A8 !important;
+}
+
+.alertClassEn {
+    font-family: "Poppins", sans-serif !important;
+}
+.alertClassAr {
+    font-family: "Cairo", sans-serif !important;
 }
 </style>

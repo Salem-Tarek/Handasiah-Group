@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    lang: "Ar"
+    lang: 'Ar',
   },
   getters:{
     getLang: state => state.lang,
@@ -18,6 +18,7 @@ export default new Vuex.Store({
   actions: {
     toggleLang({commit}, lang){
       commit('toggleLang', lang)
+      localStorage.setItem('currentLang', lang);
     }
   },
   modules: {},

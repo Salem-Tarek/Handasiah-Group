@@ -87,48 +87,67 @@ export default {
             },
             rules: {
                 name: [
-                    v => !!v || 'Name is required',
+                    v => !!v || this.rulesLocalization.name,
                 ],
                 email: [
-                    v => !!v || 'Email is required',
-                    v => /.+@.+\..+/.test(v) || 'Email must be valid',
+                    v => !!v || this.rulesLocalization.email,
+                    v => /.+@.+\..+/.test(v) || this.rulesLocalization.emailValidation,
                 ],
                 phone: [
-                    v => !!v || 'Phone is required',
+                    v => !!v || this.rulesLocalization.phone,
                 ],
                 Whatsapp: [
-                    v => !!v || 'Whatsapp Number is required',
+                    v => !!v || this.rulesLocalization.whatsapp,
                 ],
                 subject: [
-                    v => !!v || 'Subject is required',
+                    v => !!v || this.rulesLocalization.subject,
                 ],
             }
         }
     },
     computed: {
-        ...mapGetters(['getLang'])
+        ...mapGetters(['getLang']),
+        rulesLocalization(){
+            return {
+                name: this.getLang === 'En' ? 'Name is required' : 'الاسم مطلوب',
+                email: this.getLang === 'En' ? 'Email is required' : 'البريد الالكترونى مطلوب',
+                emailValidation: this.getLang === 'En' ? 'Email must be valid' : 'البريد الالكترونى يجب ان يكون صحيح البنية',
+                phone: this.getLang === 'En' ? 'Phone is required' : 'رقم الهاتف مطلوب',
+                whatsapp: this.getLang === 'En' ? 'Whatsapp is required' : 'رقم الواتس اب مطلوب',
+                subject: this.getLang === 'En' ? 'Subject is required' : 'الموضوع مطلوب',
+            }
+        }
     },
     methods: {
         async submitContact(){
+            for(let key in this.contactForm){
+                if(this.contactForm[key].trim() === ''){
+                    this.alertMaker('Please, Fill All Fields', 'من فضلك قم بملئ جميع حقول الإدخال', 'warning');
+                    // location.reload();
+                    return;
+                }
+            }
             const res = await axios.post('/frontend/contactUs', this.contactForm);
-            if(res.status){
-                this.contactForm.fullname =  "";
-                this.contactForm.email =  "";
-                this.contactForm.phone =  "";
-                this.contactForm.whatsapp =  "";
-                this.contactForm.subject =  "";
+            if(res.status === 200){
                 // alert('تم إرسال الرسالة بنجاح');
-                Swal.fire({
+                this.alertMaker('Message Sent Successfully', 'تم إرسال الرسالة بنجاح');
+                location.reload();
+            }
+        },
+        alertMaker(titleEn, titleAr, icon = 'success'){
+            Swal.fire({
                     position: 'center',
-                    icon: 'success',
-                    title: this.getLang === 'En' ? 'Message Sent Successfully' : 'تم إرسال الرسالة بنجاح',
+                    customClass: {
+                        title: this.getLang === 'En' ? 'alertClassEn' : 'alertClassAr',
+                    },
+                    icon: icon,
+                    title: this.getLang === 'En' ? titleEn : titleAr,
                     showConfirmButton: false,
                     timer: 3000,
-                    didDestroy: () => {
-                        location.reload();
-                    }
+                    // didDestroy: () => {
+                    //     // location.reload();
+                    // }
                 })
-            }
         }
     }
 }
@@ -141,4 +160,12 @@ export default {
 .main-btn:hover, .main-btn:focus {
     background-color: #0057A8 !important;
 }
+
+.alertClassEn {
+    font-family: "Poppins", sans-serif !important;
+}
+.alertClassAr {
+    font-family: "Cairo", sans-serif !important;
+}
+
 </style>

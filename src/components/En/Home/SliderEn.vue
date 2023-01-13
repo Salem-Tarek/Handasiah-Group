@@ -4,7 +4,6 @@
             <div class="d-flex align-center justify-space-between" style="height: 100%">
                 <v-carousel hide-delimiters show-arrows-on-hover height="100%">
                   <v-carousel-item
-                    contain
                     v-for="(slider,i) in sliders"
                     :key="i"
                     :src="slider.image"
