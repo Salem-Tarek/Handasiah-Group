@@ -1,6 +1,6 @@
 <template>
     <div class="demo py-5 text-center d-flex align-center justify-center flex-column">
-        <h1 class="mb-10">{{ getLang === 'En' ? 'View our' : 'شاهد' }} <span class="main-text-color">{{ getLang === 'En' ? 'Video Demo' : 'فيديو العرض الخاص بنا' }}</span></h1>
+        <h1 class="mb-10 px-1">{{ getLang === 'En' ? 'View our' : 'شاهد' }} <span class="main-text-color">{{ getLang === 'En' ? 'Video Demo' : 'فيديو العرض الخاص بنا' }}</span></h1>
         <p class="mb-10 font-weight-bold grey--text text--darken-2">{{ videoData.description }}</p>
         <v-icon x-large @click="toggleDemoOverlay()" class="main-text-color">mdi-play-circle</v-icon>
         <v-overlay :z-index="zIndex" :value="overlay" @click="toggleDemoOverlay()">

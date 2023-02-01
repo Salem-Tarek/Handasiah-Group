@@ -9,7 +9,7 @@
                 </carousel>
                 <div class="header-content white--text text-center">
                     <p class="text-uppercase display-1 font-weight-bold">{{ getLang === 'En' ? 'About Us' : 'عننا' }}</p>
-                    <p class="text-subtitle-2 text-sm-h6 font-weight-bold mb-0"> {{ `"${aboutData.setting.title}"` }}</p>
+                    <p class="text-subtitle-2 text-sm-h6 font-weight-bold mb-0 mx-5 mx-md-auto"> {{ `"${aboutData.setting.title}"` }}</p>
                 </div>
             </v-container>
         </div>
@@ -157,6 +157,9 @@ export default {
     transform: translate(-50%, -50%);
     z-index: 2;
     width: 100%;
+    p:last-child {
+        max-width: 900px !important;
+    }
 }
 
 .aboutEn .partners-wrapper, .aboutEn .certificates-wrapper {

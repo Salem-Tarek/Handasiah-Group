@@ -88,6 +88,12 @@ export default {
     }
   },
   async mounted(){
+    const res = await axios.get('/frontend/setting');
+    if(res.status === 200){
+      const favIcon = document.getElementById('favIconId');
+      favIcon.href = res.data.data.Setting.favicon;
+      // favIcon.href = 'https://unsplash.com/photos/9irw5scEtxo';
+    }
     this.getSettingsData();
     let currentLang = localStorage.getItem('currentLang') && localStorage.getItem('currentLang') || '';
     
@@ -97,7 +103,7 @@ export default {
       localStorage.setItem('currentLang', currentLang)
     }
     this.toggleLang(currentLang);
-  }
+  },
 };
 </script>
 
