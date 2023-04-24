@@ -4,69 +4,81 @@
         <v-form ref="serviceFormEn">
             <v-container>
                 <v-row>
-                    <v-col cols="12" md="6" class="py-0">
+                    <v-col cols="12" md="6" class="py-0 mb-4">
                         <v-text-field
                             v-model="serviceForm.fullname"
-                            :rules="rules.name"
                             :label="getLang === 'En' ? 'Name' : 'الاسم'"
                             required
                             outlined
                             dense
+                            hide-details
+                            :error="!isValid(serviceForm.fullname.trim(), requiredInputs.fullname)"
+                            @blur="requiredInputs.fullname = true"
                         ></v-text-field>
+                        <div v-if="!isValid(serviceForm.fullname.trim(), requiredInputs.fullname)" class="red--text subtitle-2 mt-1 mx-1">{{ getLang === 'En' ? 'Name is required' : 'الاسم مطلوب' }}</div>
                     </v-col>
-                    <v-col cols="12" md="6" class="py-0">
+                    <v-col cols="12" md="6" class="py-0 mb-4">
                         <v-text-field
                             v-model="serviceForm.email"
-                            :rules="rules.email"
                             :label="getLang === 'En' ? 'Email' : 'البريد الالكترونى'"
                             type="email"
                             required
                             outlined
                             dense
+                            hide-details
                         ></v-text-field>
                     </v-col>
-                    <v-col cols="12" md="8" class="py-0">
+                    <v-col cols="12" md="8" class="py-0 mb-4">
                         <v-text-field
                             v-model="serviceForm.address"
-                            :rules="rules.address"
                             :label="getLang === 'En' ? 'Address' : 'العنوان'"
                             required
                             outlined
                             dense
+                            hide-details
+                            :error="!isValid(serviceForm.address.trim(), requiredInputs.address)"
+                            @blur="requiredInputs.address = true"
                         ></v-text-field>
+                        <div v-if="!isValid(serviceForm.address.trim(), requiredInputs.address)" class="red--text subtitle-2 mt-1 mx-1">{{ getLang === 'En' ? 'Address is required' : 'العنوان مطلوب' }}</div>
                     </v-col>
-                    <v-col cols="12" md="4" class="py-0">
+                    <v-col cols="12" md="4" class="py-0 mb-4">
                         <v-text-field
                             v-model="serviceForm.whatsapp"
-                            :rules="rules.phone"
                             :label="getLang === 'En' ? 'Phone(Whatsapp)' : 'رقم الواتس اب'"
                             type="number"
                             hide-spin-buttons
                             required
                             outlined
                             dense
+                            hide-details
+                            :error="!isValid(serviceForm.whatsapp.trim(), requiredInputs.whatsapp)"
+                            @blur="requiredInputs.whatsapp = true"
                         ></v-text-field>
+                        <div v-if="!isValid(serviceForm.whatsapp.trim(), requiredInputs.whatsapp)" class="red--text subtitle-2 mt-1 mx-1">{{ getLang === 'En' ? 'Whatsapp is required' : 'رقم الواتس اب مطلوب' }}</div>
                     </v-col>
-                    <v-col cols="12" md="6" class="py-0">
+                    <v-col cols="12" md="6" class="py-0 mb-4">
                         <v-text-field
                             v-model="serviceForm.person"
-                            :rules="rules.person"
                             :label="getLang === 'En' ? 'Client Responsible Person' : 'الشخص المسئول لدى العميل'"
                             outlined
                             dense
+                            hide-details
                         ></v-text-field>
                     </v-col>
-                    <v-col cols="12" md="6" class="py-0">
+                    <v-col cols="12" md="6" class="py-0 mb-4">
                         <v-text-field
                             v-model="serviceForm.system"
-                            :rules="rules.system"
                             :label="getLang === 'En' ? 'Which System will be fixed ?' : 'النظام المراد إجراء معاينة له'"
                             required
                             outlined
                             dense
+                            hide-details
+                            :error="!isValid(serviceForm.system.trim(), requiredInputs.system)"
+                            @blur="requiredInputs.system = true"
                         ></v-text-field>
+                        <div v-if="!isValid(serviceForm.system.trim(), requiredInputs.system)" class="red--text subtitle-2 mt-1 mx-1">{{ getLang === 'En' ? 'System will be fixed is required' : 'النظام المراد إصلاحة مطلوب' }}</div>
                     </v-col>
-                    <v-col cols="12" md="12" class="py-0">
+                    <v-col cols="12" md="12" class="py-0 mb-4">
                         <v-menu
                             ref="dateMenu"
                             v-model="dateMenu"
@@ -77,6 +89,7 @@
                             <template v-slot:activator="{ on, attrs }">
                             <v-text-field
                                 dense
+                                hide-details
                                 outlined
                                 v-model="serviceForm.date"
                                 :label="getLang === 'En' ? 'Service Date' : 'تاريخ الخدمة'"
@@ -94,14 +107,14 @@
                             </v-date-picker>
                         </v-menu>
                     </v-col>    
-                    <v-col cols="12" md="12" class="py-0">
+                    <v-col cols="12" md="12" class="py-0 mb-4">
                         <v-textarea
                             v-model="serviceForm.notes"
-                            :rules="rules.notes"
                             :label="getLang === 'En' ? 'Notes' : 'ملاحظات'"
                             required
                             outlined
                             dense
+                            hide-details
                             no-resize
                         ></v-textarea>
                     </v-col>
@@ -128,47 +141,50 @@ export default {
                 email: "",
                 address: "",
                 person: "",
-                whatsapp: "",
                 system: "",
+                whatsapp: "",
                 date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
                 notes: "",
             },
             dateMenu: false,
-            rules: {
-                name: [
-                    v => !!v || this.rulesLocalization.name,
-                ],
-                email: [
-                    v => !!v || this.rulesLocalization.email,
-                    v => /.+@.+\..+/.test(v) || this.rulesLocalization.emailValidation,
-                ],
-                address: [
-                    v => !!v || this.rulesLocalization.address,
-                ],
-                phone: [
-                    v => !!v || this.rulesLocalization.phone,
-                ],
-                system: [
-                    v => !!v || this.rulesLocalization.system,
-                ],
-                date: [
-                    v => !!v || this.rulesLocalization.date,
-                ],
-                person: [
-                    v => !!v || this.rulesLocalization.person,
-                ],
+            requiredInputs: {
+                fullname: false,
+                address: false,
+                whatsapp: false,
+                system: false,
             }
         }
     },
     methods: {
         async submitOffer(){
-            for(let key in this.serviceForm){
-                if(this.serviceForm[key].trim() === ''){
-                    this.alertMaker('Please, Fill All Fields', 'من فضلك قم بملئ جميع حقول الإدخال', 'warning');
-                    // location.reload();
+            let requiredEmptyVals = [];
+            let requiredVals = [];
+            for(let key in this.requiredInputs){
+                if(this.serviceForm[key] === ''){
+                    requiredEmptyVals.push(this.serviceForm[key]);
+                }
+                requiredVals.push(this.serviceForm[key]);
+            }
+            for(let key in this.requiredInputs){
+                if(requiredVals.every(val => val.trim() === "")){
+                    this.alertMaker('Please, Fill All Required Fields', 'من فضلك قم بملئ جميع حقول الإدخال المطلوبة', 'warning');
+                    for(let requireInput in this.requiredInputs){
+                        this.requiredInputs[requireInput] = true;
+                    }
                     return;
                 }
+                if(this.serviceForm[key] === ''){
+                    this.requiredInputs[key] = true;
+                    this.alertMaker('Please, Fill All Required Fields', 'من فضلك قم بملئ جميع حقول الإدخال المطلوبة', 'warning');
+                    return;
+                }
+                let requiredVals_noPhone = this.serviceForm.phone?.trim().length ? requiredEmptyVals.filter(val => val !== this.serviceForm.phone) : requiredEmptyVals;
+                if(this.serviceForm.phone?.trim().length < 11 || this.serviceForm.whatsapp?.trim().length < 11 && !requiredVals_noPhone.length){
+                    this.alertMaker('Please, Phone Must consists of 11 Numbers', 'من فضلك رقم الموبايل يجب ان يتكون من 11 رقم', 'warning');
+                    return;    
+                }
             }
+            
             const res = await axios.post('/frontend/orderService', {...this.serviceForm});
             if(res.status === 200){
                 this.alertMaker('Order Sent Successfully', 'تم إرسال الطلب بنجاح');
@@ -189,22 +205,31 @@ export default {
                     //     // location.reload();
                     // }
                 })
+        },
+        isValid(txt, isBlured){
+            if(isBlured){
+                if(txt.trim().length){
+                    return true;
+                }else{
+                    return false; 
+                }
+            }else{
+                return true 
+            }
+        },
+        resetForm(){
+            for(let key in this.serviceForm){
+                if(key !== 'date'){
+                    this.serviceForm[key] = "";
+                }
+            }
+            for(let key in this.requiredInputs){
+                this.requiredInputs[key] = false;
+            }
         }
     },
     computed: {
         ...mapGetters(['getLang']),
-        rulesLocalization(){
-            return {
-                name: this.getLang === 'En' ? 'Name is required' : 'الاسم مطلوب',
-                email: this.getLang === 'En' ? 'Email is required' : 'البريد الالكترونى مطلوب',
-                emailValidation: this.getLang === 'En' ? 'Email must be valid' : 'البريد الالكترونى يجب ان يكون صحيح البنية',
-                phone: this.getLang === 'En' ? 'Phone is required' : 'رقم الهاتف مطلوب',
-                address: this.getLang === 'En' ? 'Address is required' : 'العنوان مطلوب',
-                system: this.getLang === 'En' ? 'System will be fixed is required' : 'النظام المراد إصلاحة مطلوب',
-                date: this.getLang === 'En' ? 'Date is required' : 'التاريخ مطلوب',
-                person: this.getLang === 'En' ? 'Client Responsible Person is required' : 'الشخص المسئول لدى العميل مطلوب',
-            }
-        }
     }
 }
 </script>

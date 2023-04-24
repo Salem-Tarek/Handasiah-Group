@@ -11,7 +11,7 @@
                             <router-link class="text-decoration-none grey--text text--darken-4" to="/">{{ getLang === 'En' ? 'Home' : 'الرئيسية' }}</router-link>
                         </v-list-item>
                         <v-list-item class="mx-3 px-0 text-uppercase subtitle-2 font-weight-bold" id="servicesEn">
-                            <v-menu transition="slide-y-transition" bottom offset-y open-on-hover min-width="240px" attach="#servicesEn">
+                            <v-menu transition="slide-y-transition" bottom offset-y open-on-hover min-width="fit-content" attach="#servicesEn">
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on" class="d-flex align-center justify-space-between">
                                         <span>{{ getLang === 'En' ? 'Services' : 'الخدمات' }}</span>
@@ -20,7 +20,7 @@
                                 </template>
                                 <v-list class="font-weight-bold">
                                     <v-list-item v-for="(service, index) in services" :key="index">
-                                        <v-btn @click="navigateToServicePage(service.title, index)" block class="text-decoration-none grey--text text--darken-4 justify-start font-weight-bold" text>{{ service.title }}</v-btn>
+                                        <v-btn @click="navigateToServicePage(service.title, index)" block class="text-decoration-none grey--text text--darken-4 justify-start font-weight-bold text-capitalize" text>{{ service.title }}</v-btn>
                                         <!-- <router-link class="text-decoration-none grey--text text--darken-4" :to="`/service-page/${service.title}`">{{ service.title }}</router-link> -->
                                     </v-list-item>
                                 </v-list>
@@ -39,13 +39,13 @@
                                 </template>
                                 <v-list class="font-weight-bold">
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/survey-order">{{ getLang === 'En' ? 'make a survey' : 'إجراء معاينة'}}</router-link>
+                                        <router-link class="text-decoration-none text-capitalize grey--text text--darken-4" to="/survey-order">{{ getLang === 'En' ? 'make a survey' : 'إجراء معاينة'}}</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/service-order">{{ getLang === 'En' ? 'Service (Repair)' : 'خدمة (صيانة)'}}</router-link>
+                                        <router-link class="text-decoration-none text-capitalize grey--text text--darken-4" to="/service-order">{{ getLang === 'En' ? 'Service (Repair)' : 'خدمة (صيانة)'}}</router-link>
                                     </v-list-item>
                                     <v-list-item>
-                                        <router-link class="text-decoration-none grey--text text--darken-4" to="/price-order">{{ getLang === 'En' ? 'Price offer' : 'طلب سعر'}}</router-link>
+                                        <router-link class="text-decoration-none text-capitalize grey--text text--darken-4" to="/price-order">{{ getLang === 'En' ? 'Price offer' : 'طلب سعر'}}</router-link>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
@@ -72,7 +72,7 @@
                 </v-app-bar-nav-icon>
             </v-app-bar>
             <!-- Navbar Navigation Drawer -->
-            <v-navigation-drawer width="265px" v-model="showDrawer" hide-overlay fixed>
+            <v-navigation-drawer width="330px" v-model="showDrawer" hide-overlay fixed>
                 <router-link to="/" class="d-flex justify-center">
                     <v-img class="d-flex justify-center" style="cursor: pointer" contain height="100px" width="100px" src="../../../assets/logo.png"></v-img>
                 </router-link>

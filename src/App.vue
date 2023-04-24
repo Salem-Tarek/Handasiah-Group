@@ -95,7 +95,9 @@ export default {
       // favIcon.href = 'https://unsplash.com/photos/9irw5scEtxo';
     }
     this.getSettingsData();
-    let currentLang = localStorage.getItem('currentLang') && localStorage.getItem('currentLang') || '';
+  },
+  async created(){
+    let currentLang = localStorage.getItem('currentLang') || '';
     
     if(!currentLang){
       const res = await axios.get('/frontend/getLanguage');
@@ -103,7 +105,7 @@ export default {
       localStorage.setItem('currentLang', currentLang)
     }
     this.toggleLang(currentLang);
-  },
+  }
 };
 </script>
 

@@ -6,7 +6,7 @@
                     <p class="mb-0 title font-weight-bold grey--text text--darken-3">{{ getLang === 'En' ? 'Some words about us' : 'بعض الكلمات عننا' }}</p>
                     <p class="subtitle-2">{{ content.aboutSomeWords && content.aboutSomeWords.description }}</p>
 
-                    <p class="mb-0 title font-weight-bold grey--text text--darken-3">{{ getLang === 'En' ? 'Mission' : 'الرؤية' }}</p>
+                    <p class="mb-0 title font-weight-bold grey--text text--darken-3">{{ getLang === 'En' ? 'Company privileges' : 'إمتيازات الشركة' }}</p>
                     <p class="subtitle-2">{{ content.mission && content.mission.description }}</p>
                 </v-col>
             </v-row>

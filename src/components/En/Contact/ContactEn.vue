@@ -1,66 +1,78 @@
 <template>
-    <div class="contact">
+    <div class="contact pt-4">
         <h1 class="text-center text-uppercase mb-5 main-text-color">{{ getLang === 'En' ? 'Contact Us' : 'تواصل معنا' }}</h1>
         <v-form ref="contactFormEn">
             <v-container>
                 <v-row>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
+                            @blur="requiredInputs.fullname = true"
+                            :class="isValid(contactForm.fullname.trim(), requiredInputs.fullname) ? 'mb-3' : ''"    
                             v-model="contactForm.fullname"
-                            :rules="rules.name"
                             :label="getLang === 'En' ? 'Name' : 'الاسم'"
                             required
+                            hide-details
                             outlined
                             dense
+                            :error="!isValid(contactForm.fullname.trim(), requiredInputs.fullname)"
                         ></v-text-field>
+                        <div v-if="!isValid(contactForm.fullname.trim(), requiredInputs.fullname)" class="red--text subtitle-2 mb-2 mt-1 mx-1">{{ getLang === 'En' ? 'Name is required' : 'الاسم مطلوب' }}</div>
                     </v-col>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
+                            class="mb-3"    
                             v-model="contactForm.email"
-                            :rules="rules.email"
                             :label="getLang === 'En' ? 'Email' : 'البريد الالكترونى'"
                             type="email"
-                            required
                             outlined
                             dense
+                            hide-details
                         ></v-text-field>
                     </v-col>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
+                            @blur="requiredInputs.phone = true"
+                            :class="isValid(contactForm.phone.trim(), requiredInputs.phone) ? 'mb-3' : ''"   
                             v-model="contactForm.phone"
-                            :rules="rules.phone"
                             :label="getLang === 'En' ? 'Phone' : 'رقم الهاتف'"
                             type="number"
                             hide-spin-buttons
                             required
+                            hide-details
                             outlined
                             dense
+                            :error="!isValid(contactForm.phone.trim(), requiredInputs.phone)"
                         ></v-text-field>
+                        <div v-if="!isValid(contactForm.phone.trim(), requiredInputs.phone)" class="red--text subtitle-2 mb-2 mt-1 mx-1">{{ getLang === 'En' ? 'Phone is required' : 'رقم الهاتف مطلوب' }}</div>
                     </v-col>
                     <v-col cols="12" md="6" class="py-0">
                         <v-text-field
+                            class="mb-3"    
                             v-model="contactForm.whatsapp"
-                            :rules="rules.Whatsapp"
                             :label="getLang === 'En' ? 'Phone(Whatsapp)' : 'رقم الواتس اب'"
                             type="number"
                             hide-spin-buttons
-                            required
                             outlined
+                            hide-details
                             dense
                         ></v-text-field>
                     </v-col>
                     <v-col cols="12" md="12" class="py-0">
                         <v-textarea
+                            @blur="requiredInputs.subject = true"
+                            :class="isValid(contactForm.subject.trim(), requiredInputs.subject) ? 'mb-3' : ''" 
                             v-model="contactForm.subject"
-                            :rules="rules.subject"
                             :label="getLang === 'En' ? 'Subject' : 'الموضوع'"
                             required
+                            hide-details
                             outlined
                             dense
                             no-resize
+                            :error="!isValid(contactForm.subject.trim(), requiredInputs.subject)"
                         ></v-textarea>
+                        <div v-if="!isValid(contactForm.subject.trim(), requiredInputs.subject)" class="red--text subtitle-2 mb-2 mt-1 mx-1">{{ getLang === 'En' ? 'Subject is required' : 'الموضوع مطلوب' }}</div>
                     </v-col>
-                    <v-col cols="12" md="12" class="pt-0">
+                    <v-col cols="12" md="12">
                         <v-btn type="submit" class="main-btn text-uppercase font-weight-bold mb-5" dark block @click.prevent="submitContact">{{ getLang === 'En' ? 'Submit' : 'إرسال' }}</v-btn>
                     </v-col>
                 </v-row>
@@ -85,53 +97,52 @@ export default {
                 whatsapp: "",
                 subject: "",
             },
-            rules: {
-                name: [
-                    v => !!v || this.rulesLocalization.name,
-                ],
-                email: [
-                    v => !!v || this.rulesLocalization.email,
-                    v => /.+@.+\..+/.test(v) || this.rulesLocalization.emailValidation,
-                ],
-                phone: [
-                    v => !!v || this.rulesLocalization.phone,
-                ],
-                Whatsapp: [
-                    v => !!v || this.rulesLocalization.whatsapp,
-                ],
-                subject: [
-                    v => !!v || this.rulesLocalization.subject,
-                ],
+            requiredInputs: {
+                fullname: false,
+                phone: false,
+                subject: false,
             }
         }
     },
     computed: {
         ...mapGetters(['getLang']),
-        rulesLocalization(){
-            return {
-                name: this.getLang === 'En' ? 'Name is required' : 'الاسم مطلوب',
-                email: this.getLang === 'En' ? 'Email is required' : 'البريد الالكترونى مطلوب',
-                emailValidation: this.getLang === 'En' ? 'Email must be valid' : 'البريد الالكترونى يجب ان يكون صحيح البنية',
-                phone: this.getLang === 'En' ? 'Phone is required' : 'رقم الهاتف مطلوب',
-                whatsapp: this.getLang === 'En' ? 'Whatsapp is required' : 'رقم الواتس اب مطلوب',
-                subject: this.getLang === 'En' ? 'Subject is required' : 'الموضوع مطلوب',
-            }
-        }
     },
     methods: {
         async submitContact(){
-            for(let key in this.contactForm){
-                if(this.contactForm[key].trim() === ''){
-                    this.alertMaker('Please, Fill All Fields', 'من فضلك قم بملئ جميع حقول الإدخال', 'warning');
-                    // location.reload();
+            let requiredEmptyVals = [];
+            let requiredVals = [];
+            for(let key in this.requiredInputs){
+                if(this.serviceForm[key] === ''){
+                    requiredEmptyVals.push(this.serviceForm[key]);
+                }
+                requiredVals.push(this.serviceForm[key]);
+            }
+            for(let key in this.requiredInputs){
+                if(requiredVals.every(val => val.trim() === "")){
+                    this.alertMaker('Please, Fill All Required Fields', 'من فضلك قم بملئ جميع حقول الإدخال المطلوبة', 'warning');
+                    for(let requireInput in this.requiredInputs){
+                        this.requiredInputs[requireInput] = true;
+                    }
                     return;
                 }
+                if(this.serviceForm[key] === ''){
+                    this.requiredInputs[key] = true;
+                    this.alertMaker('Please, Fill All Required Fields', 'من فضلك قم بملئ جميع حقول الإدخال المطلوبة', 'warning');
+                    return;
+                }
+                let requiredVals_noPhone = this.serviceForm.phone?.trim().length ? requiredEmptyVals.filter(val => val !== this.serviceForm.phone) : requiredEmptyVals;
+                if(this.serviceForm.phone?.trim().length < 11 || this.serviceForm.whatsapp?.trim().length < 11 && !requiredVals_noPhone.length){
+                    this.alertMaker('Please, Phone Must consists of 11 Numbers', 'من فضلك رقم الموبايل يجب ان يتكون من 11 رقم', 'warning');
+                    return;    
+                }
             }
+            
+ 
             const res = await axios.post('/frontend/contactUs', this.contactForm);
             if(res.status === 200){
-                // alert('تم إرسال الرسالة بنجاح');
                 this.alertMaker('Message Sent Successfully', 'تم إرسال الرسالة بنجاح');
-                location.reload();
+                this.resetForm()
+                // location.reload();
             }
         },
         alertMaker(titleEn, titleAr, icon = 'success'){
@@ -148,7 +159,29 @@ export default {
                     //     // location.reload();
                     // }
                 })
+        },
+        isValid(txt, isBlured){
+            if(isBlured){
+                if(txt.trim().length){
+                    return true;
+                }else{
+                    return false; 
+                }
+            }else{
+                return true 
+            }
+        },
+        resetForm(){
+            for(let key in this.contactForm){
+                this.contactForm[key] = "";
+            }
+            for(let key in this.requiredInputs){
+                this.requiredInputs[key] = false;
+            }
         }
+    },
+    mounted(){
+        alert(this.getLang)
     }
 }
 </script>
