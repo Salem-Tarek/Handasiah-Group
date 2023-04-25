@@ -71,10 +71,51 @@ export default {
       this.settings = res.data.data.Setting;
       this.services = res.data.data.Services;
       localStorage.setItem('servicesTitles', JSON.stringify(this.services.map(service => service.title)))
+    },
+    getCurrentPage(pageName, lang){
+      if(lang === "En"){
+        switch(pageName) {
+          case 'About':
+            return 'About Page';
+          case 'Contact':
+            return 'Contact Page';
+          case 'PriceOrder':
+            return 'PriceOrder Page';
+          case 'Service':
+            return `${this.$route.params.title} Page`;
+          case 'ServiceOrder':
+            return 'ServiceOrder Page';
+          case 'SurveyOrder':
+            return 'SurveyOrder Page';
+          default:
+            return 'Home Page';
+        }
+      }else {
+        switch(pageName) {
+          case 'About':
+            return 'صفحة عننا';
+          case 'Contact':
+            return 'صفحة اتصل بنا';
+          case 'PriceOrder':
+            return 'صفحة طلب سعر';
+          case 'Service':
+          return `صفحة ${this.$route.params.title}`;
+          case 'ServiceOrder':
+            return 'صفحة طلب خدمة';
+          case 'SurveyOrder':
+            return 'صفحة طلب معاينة';
+          default:
+            return 'الصفحة الرئيسية';
+        }
+      }
+    },
+    async sendPageName(pageName){
+      await axios.post('/frontend/guest', {page: pageName});
     }
   },
   watch: {
     getLang(newVal){
+      this.sendPageName(this.getCurrentPage(this.$route.name, this.getLang))
       this.toggleLang(newVal);
       this.getSettingsData();
       if(newVal === "En"){
@@ -85,6 +126,13 @@ export default {
         this.$vuetify.rtl = true;
       }
       this.showSnackbar = true;
+    },
+    $route: {
+      handler(){
+        this.sendPageName(this.getCurrentPage(this.$route.name, this.getLang))
+        console.log(this.getCurrentPage(this.$route.name, this.getLang));
+      },
+      deep: true
     }
   },
   async mounted(){
