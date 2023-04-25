@@ -188,7 +188,8 @@ export default {
             const res = await axios.post('/frontend/orderService', {...this.serviceForm});
             if(res.status === 200){
                 this.alertMaker('Order Sent Successfully', 'تم إرسال الطلب بنجاح');
-                location.reload();
+                this.resetForm()
+                // location.reload();
             }
         },
         alertMaker(titleEn, titleAr, icon = 'success'){

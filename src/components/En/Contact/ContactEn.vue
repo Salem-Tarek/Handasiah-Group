@@ -112,10 +112,10 @@ export default {
             let requiredEmptyVals = [];
             let requiredVals = [];
             for(let key in this.requiredInputs){
-                if(this.serviceForm[key] === ''){
-                    requiredEmptyVals.push(this.serviceForm[key]);
+                if(this.contactForm[key] === ''){
+                    requiredEmptyVals.push(this.contactForm[key]);
                 }
-                requiredVals.push(this.serviceForm[key]);
+                requiredVals.push(this.contactForm[key]);
             }
             for(let key in this.requiredInputs){
                 if(requiredVals.every(val => val.trim() === "")){
@@ -125,24 +125,27 @@ export default {
                     }
                     return;
                 }
-                if(this.serviceForm[key] === ''){
+                if(this.contactForm[key] === ''){
                     this.requiredInputs[key] = true;
                     this.alertMaker('Please, Fill All Required Fields', 'من فضلك قم بملئ جميع حقول الإدخال المطلوبة', 'warning');
                     return;
                 }
-                let requiredVals_noPhone = this.serviceForm.phone?.trim().length ? requiredEmptyVals.filter(val => val !== this.serviceForm.phone) : requiredEmptyVals;
-                if(this.serviceForm.phone?.trim().length < 11 || this.serviceForm.whatsapp?.trim().length < 11 && !requiredVals_noPhone.length){
+                let requiredVals_noPhone = this.contactForm.phone?.trim().length ? requiredEmptyVals.filter(val => val !== this.contactForm.phone) : requiredEmptyVals;
+                if((this.contactForm.phone?.trim().length < 11 || this.contactForm.whatsapp?.trim().length < 11) && !requiredVals_noPhone.length){
+                    console.log(this.contactForm.phone?.trim().length < 11);
+                    console.log(this.contactForm.whatsapp?.trim().length < 11);
+                    console.log(!requiredVals_noPhone.length);
                     this.alertMaker('Please, Phone Must consists of 11 Numbers', 'من فضلك رقم الموبايل يجب ان يتكون من 11 رقم', 'warning');
                     return;    
                 }
             }
-            
- 
-            const res = await axios.post('/frontend/contactUs', this.contactForm);
+
+            const res = await axios.post('/frontend/order', {...this.contactForm});
             if(res.status === 200){
-                this.alertMaker('Message Sent Successfully', 'تم إرسال الرسالة بنجاح');
+                this.alertMaker('Order Sent Successfully', 'تم إرسال الطلب بنجاح');
                 this.resetForm()
                 // location.reload();
+                // alert('تم إرسال طلب المعاينة بنجاح')
             }
         },
         alertMaker(titleEn, titleAr, icon = 'success'){
@@ -180,9 +183,6 @@ export default {
             }
         }
     },
-    mounted(){
-        alert(this.getLang)
-    }
 }
 </script>
 
