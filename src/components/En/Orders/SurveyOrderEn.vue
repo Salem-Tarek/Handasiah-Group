@@ -48,7 +48,7 @@
                             hide-spin-buttons
                             required
                             hide-details
-                            :error="!isValid(serviceForm.whatsapp.trim(), requiredInputs.whatsapp)"
+                            :error="!isValid(serviceForm.whatsapp.trim(), requiredInputs.whatsapp) || isPhoneNotValid"
                             @blur="requiredInputs.whatsapp = true"
                             outlined
                             dense
@@ -127,7 +127,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import { mapGetters } from 'vuex';
 import Swal from 'sweetalert2'
 
@@ -151,46 +151,40 @@ export default {
                 address: false,
                 whatsapp: false,
                 system: false,
-            }
+            },
+            isPhoneNotValid: false,
         }
     },
     methods: {
         async submitOffer(){
-            let requiredEmptyVals = [];
             let requiredVals = [];
-            for(let key in this.requiredInputs){
-                if(this.serviceForm[key] === ''){
-                    requiredEmptyVals.push(this.serviceForm[key]);
-                }
-                requiredVals.push(this.serviceForm[key]);
-            }
-            for(let key in this.requiredInputs){
-                if(requiredVals.every(val => val.trim() === "")){
-                    this.alertMaker('Please, Fill All Required Fields', 'من فضلك قم بملئ جميع حقول الإدخال المطلوبة', 'warning');
-                    for(let requireInput in this.requiredInputs){
-                        this.requiredInputs[requireInput] = true;
-                    }
-                    return;
-                }
-                if(this.serviceForm[key] === ''){
-                    this.requiredInputs[key] = true;
-                    this.alertMaker('Please, Fill All Required Fields', 'من فضلك قم بملئ جميع حقول الإدخال المطلوبة', 'warning');
-                    return;
-                }
-                let requiredVals_noPhone = this.serviceForm.phone?.trim().length ? requiredEmptyVals.filter(val => val !== this.serviceForm.phone) : requiredEmptyVals;
-                if(this.serviceForm.phone?.trim().length < 11 || this.serviceForm.whatsapp?.trim().length < 11 && !requiredVals_noPhone.length){
-                    this.alertMaker('Please, Phone Must consists of 11 Numbers', 'من فضلك رقم الموبايل يجب ان يتكون من 11 رقم', 'warning');
-                    return;    
-                }
+            for(let requireInput in this.requiredInputs){
+                requiredVals.push(this.serviceForm[requireInput]);
             }
 
-            const res = await axios.post('/frontend/order', {...this.serviceForm});
-            if(res.status === 200){
-                this.alertMaker('Order Sent Successfully', 'تم إرسال الطلب بنجاح');
-                this.resetForm()
-                // location.reload();
-                // alert('تم إرسال طلب المعاينة بنجاح')
+            if(requiredVals.some(val => val === '')){
+                this.alertMaker('Please, Fill All Required Fields', 'من فضلك قم بملئ جميع حقول الإدخال المطلوبة', 'warning');
+                for(let requireInput in this.requiredInputs) {
+                    if(this.serviceForm[requireInput].trim() === ''){
+                        this.requiredInputs[requireInput] = true;
+                    }
+                }
+                return;
             }
+
+            if(this.serviceForm.phone?.trim().length < 11 || this.serviceForm.whatsapp?.trim().length < 11){
+                this.isPhoneNotValid = true;
+                this.alertMaker('Please, Phone Must consists of 11 Numbers', 'من فضلك رقم الموبايل يجب ان يتكون من 11 رقم', 'warning');
+                return;    
+            }
+
+            // const res = await axios.post('/frontend/order', {...this.serviceForm});
+            // if(res.status === 200){
+            //     this.alertMaker('Order Sent Successfully', 'تم إرسال الطلب بنجاح');
+            //     this.resetForm()
+            //     // location.reload();
+            //     // alert('تم إرسال طلب المعاينة بنجاح')
+            // }
         },
         alertMaker(titleEn, titleAr, icon = 'success'){
             Swal.fire({

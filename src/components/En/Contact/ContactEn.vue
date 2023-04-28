@@ -41,7 +41,7 @@
                             hide-details
                             outlined
                             dense
-                            :error="!isValid(contactForm.phone.trim(), requiredInputs.phone)"
+                            :error="!isValid(contactForm.phone.trim(), requiredInputs.phone) || isPhoneNotValid"
                         ></v-text-field>
                         <div v-if="!isValid(contactForm.phone.trim(), requiredInputs.phone)" class="red--text subtitle-2 mb-2 mt-1 mx-1">{{ getLang === 'En' ? 'Phone is required' : 'رقم الهاتف مطلوب' }}</div>
                     </v-col>
@@ -101,7 +101,8 @@ export default {
                 fullname: false,
                 phone: false,
                 subject: false,
-            }
+            },
+            isPhoneNotValid: false,
         }
     },
     computed: {
@@ -109,35 +110,25 @@ export default {
     },
     methods: {
         async submitContact(){
-            let requiredEmptyVals = [];
             let requiredVals = [];
-            for(let key in this.requiredInputs){
-                if(this.contactForm[key] === ''){
-                    requiredEmptyVals.push(this.contactForm[key]);
-                }
-                requiredVals.push(this.contactForm[key]);
+            for(let requireInput in this.requiredInputs){
+                requiredVals.push(this.contactForm[requireInput]);
             }
-            for(let key in this.requiredInputs){
-                if(requiredVals.every(val => val.trim() === "")){
-                    this.alertMaker('Please, Fill All Required Fields', 'من فضلك قم بملئ جميع حقول الإدخال المطلوبة', 'warning');
-                    for(let requireInput in this.requiredInputs){
+
+            if(requiredVals.some(val => val === '')){
+                this.alertMaker('Please, Fill All Required Fields', 'من فضلك قم بملئ جميع حقول الإدخال المطلوبة', 'warning');
+                for(let requireInput in this.requiredInputs) {
+                    if(this.contactForm[requireInput].trim() === ''){
                         this.requiredInputs[requireInput] = true;
                     }
-                    return;
                 }
-                if(this.contactForm[key] === ''){
-                    this.requiredInputs[key] = true;
-                    this.alertMaker('Please, Fill All Required Fields', 'من فضلك قم بملئ جميع حقول الإدخال المطلوبة', 'warning');
-                    return;
-                }
-                let requiredVals_noPhone = this.contactForm.phone?.trim().length ? requiredEmptyVals.filter(val => val !== this.contactForm.phone) : requiredEmptyVals;
-                if((this.contactForm.phone?.trim().length < 11 || this.contactForm.whatsapp?.trim().length < 11) && !requiredVals_noPhone.length){
-                    console.log(this.contactForm.phone?.trim().length < 11);
-                    console.log(this.contactForm.whatsapp?.trim().length < 11);
-                    console.log(!requiredVals_noPhone.length);
-                    this.alertMaker('Please, Phone Must consists of 11 Numbers', 'من فضلك رقم الموبايل يجب ان يتكون من 11 رقم', 'warning');
-                    return;    
-                }
+                return;
+            }
+
+            if(this.contactForm.phone?.trim().length < 11 || this.contactForm.whatsapp?.trim().length < 11){
+                this.isPhoneNotValid = true;
+                this.alertMaker('Please, Phone Must consists of 11 Numbers', 'من فضلك رقم الموبايل يجب ان يتكون من 11 رقم', 'warning');
+                return;    
             }
 
             const res = await axios.post('/frontend/order', {...this.contactForm});
