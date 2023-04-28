@@ -68,7 +68,7 @@
                     <v-col cols="12" md="6" class="py-0 mb-4">
                         <v-text-field
                             v-model="serviceForm.system"
-                            :label="getLang === 'En' ? 'Which System will be fixed ?' : 'النظام المراد إجراء معاينة له'"
+                            :label="getLang === 'En' ? 'Which System will be fixed ?' : 'النظام المراد إصلاحة'"
                             required
                             outlined
                             dense

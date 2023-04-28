@@ -67,7 +67,7 @@
                     <v-col cols="12" md="6" class="py-0 mb-3">
                         <v-text-field
                             v-model="serviceForm.system"
-                            :label="getLang === 'En' ? 'Which System will be fixed ?' : 'النظام المراد إجراء معاينة له'"
+                            :label="getLang === 'En' ? 'Which System will be Checked ?' : 'النظام المراد إجراء معاينة له'"
                             required
                             hide-details
                             :error="!isValid(serviceForm.system.trim(), requiredInputs.system)"
@@ -75,7 +75,7 @@
                             outlined
                             dense
                         ></v-text-field>
-                        <div v-if="!isValid(serviceForm.system.trim(), requiredInputs.system)" class="red--text subtitle-2 mt-1 mx-1">{{ getLang === 'En' ? 'System will be fixed is required' : 'النظام المراد إصلاحة مطلوب' }}</div>
+                        <div v-if="!isValid(serviceForm.system.trim(), requiredInputs.system)" class="red--text subtitle-2 mt-1 mx-1">{{ getLang === 'En' ? 'System will be Checked is required' : 'النظام المراد إجراء معيانة له مطلوب' }}</div>
                     </v-col>
                     <v-col cols="12" md="12" class="py-0 mb-3">
                         <v-menu
